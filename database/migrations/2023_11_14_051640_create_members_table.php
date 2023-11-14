@@ -12,19 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('members', function (Blueprint $table) {
-            $table->string('MemberId')->primary();
+            $table->string('Id')->primary();
             $table->string('Name');
             $table->string('Surname');
             $table->date('Birth');
             $table->date('JoinDate');
-            $table->string('MajorsId');
-            $table->String('CourseId');
+            $table->string('StudentId');
+            $table->string('MajorId');
+            $table->string('CourseId');
             $table->string('Mail');
-            $table->string('Image');
+            $table->string('Avatar');
             $table->string('Username');
             $table->string('Password');
-            $table->string('ActiveStatus');
-            $table->json('SocialNetworkAccount');
+            $table->boolean('ActiveStatus');
+            $table->json('SocialAccount');
+            $table->string('Role');
             $table->timestamps();
         });
     }
