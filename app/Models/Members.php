@@ -19,9 +19,9 @@ class Members extends Model
         return $this->belongsTo(Courses::class);
     }
 
-    public function project()
+    public function projectMembers()
     {
-        return $this->belongsToMany(Projects::class);
+        return $this->belongsToMany(ProjectMembers::class);
     }
 
     public function task()

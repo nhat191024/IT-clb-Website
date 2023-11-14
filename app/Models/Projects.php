@@ -9,9 +9,9 @@ class Projects extends Model
 {
     use HasFactory;
 
-    public function member()
+    public function projectMembers()
     {
-        return $this->belongsToMany(Members::class);
+        return $this->hasOne(ProjectMembers::class);
     }
 
     public function task()
