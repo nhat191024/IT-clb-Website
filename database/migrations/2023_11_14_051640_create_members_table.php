@@ -17,17 +17,20 @@ return new class extends Migration
             $table->string('Surname');
             $table->date('Birth');
             $table->date('JoinDate');
-            $table->string('StudentId');
-            $table->string('MajorId');
-            $table->string('CourseId');
+            $table->unsignedBigInteger('MajorId');
+            $table->unsignedBigInteger('CourseId');
             $table->string('Mail');
-            $table->string('Avatar');
+            $table->integer('PhoneNumber');
+            $table->string('Avatar')->nullable();
             $table->string('Username');
             $table->string('Password');
             $table->boolean('ActiveStatus');
-            $table->json('SocialAccount');
+            $table->json('SocialAccount')->nullable();
             $table->string('Role');
             $table->timestamps();
+
+            $table->foreign('MajorId')->references('Id')->on('majors')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('CourseId')->references('Id')->on('courses')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 

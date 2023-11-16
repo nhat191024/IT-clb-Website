@@ -12,10 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tasks', function (Blueprint $table) {
-            $table->string('Id')->primary();
+            $table->id();
             $table->string('Job');
-            $table->string('WorkMember');
+            $table->string('Project');
+            $table->string('WorkMember')->nullable();
             $table->timestamps();
+
+            $table->foreign('Project')->references('Id')->on('projects')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('WorkMember')->references('Id')->on('members')->onUpdate('cascade')->onDelete('set null');
         });
     }
 

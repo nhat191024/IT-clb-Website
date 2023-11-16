@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Majors;
-use App\Http\Requests\StoreMajorsRequest;
-use App\Http\Requests\UpdateMajorsRequest;
+use App\Models\Projects;
+use App\Http\Requests\StoreProjectsRequest;
+use App\Http\Requests\UpdateProjectsRequest;
+use App\Http\Controllers\Controller;
 
-class MajorsController extends Controller
+class ProjectsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class MajorsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMajorsRequest $request)
+    public function store(StoreProjectsRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class MajorsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Majors $majors)
+    public function show(Projects $projects)
     {
         //
     }
@@ -43,7 +44,7 @@ class MajorsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Majors $majors)
+    public function edit(Projects $projects)
     {
         //
     }
@@ -51,7 +52,7 @@ class MajorsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMajorsRequest $request, Majors $majors)
+    public function update(UpdateProjectsRequest $request, Projects $projects)
     {
         //
     }
@@ -59,7 +60,7 @@ class MajorsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Majors $majors)
+    public function destroy(Projects $projects)
     {
         //
     }

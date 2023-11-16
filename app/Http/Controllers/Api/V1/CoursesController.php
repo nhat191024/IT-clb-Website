@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Courses;
 use App\Http\Requests\StoreCoursesRequest;
 use App\Http\Requests\UpdateCoursesRequest;
+use App\Http\Controllers\Controller;
 
 class CoursesController extends Controller
 {

@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Members;
-use App\Http\Requests\StoreMembersRequest;
-use App\Http\Requests\UpdateMembersRequest;
+use App\Models\Majors;
+use App\Http\Requests\StoreMajorsRequest;
+use App\Http\Requests\UpdateMajorsRequest;
+use App\Http\Controllers\Controller;
 
-class MembersController extends Controller
+class MajorsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return Majors::all();
     }
 
     /**
@@ -27,7 +28,7 @@ class MembersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMembersRequest $request)
+    public function store(StoreMajorsRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class MembersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Members $members)
+    public function show(Majors $majors)
     {
         //
     }
@@ -43,7 +44,7 @@ class MembersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Members $members)
+    public function edit(Majors $majors)
     {
         //
     }
@@ -51,7 +52,7 @@ class MembersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMembersRequest $request, Members $members)
+    public function update(UpdateMajorsRequest $request, Majors $majors)
     {
         //
     }
@@ -59,7 +60,7 @@ class MembersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Members $members)
+    public function destroy(Majors $majors)
     {
         //
     }

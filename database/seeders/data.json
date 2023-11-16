@@ -1,0 +1,27 @@
+{
+    "data": {
+        "Majors": [
+            {
+                "name": "Web Developer"
+            },
+            {
+                "name": "Software Developer"
+            },
+            {
+                "name": "Graphics Design"
+            },
+            {
+                "name": "Marketing & Sale"
+            },
+            {
+                "name": "Logistics"
+            },
+            {
+                "name": "Automation"
+            },
+            {
+                "name": "Electronic"
+            }
+        ]
+    }
+}

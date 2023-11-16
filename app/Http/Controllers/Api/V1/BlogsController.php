@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Tasks;
-use App\Http\Requests\StoreTasksRequest;
-use App\Http\Requests\UpdateTasksRequest;
+use App\Models\Blogs;
+use App\Http\Requests\StoreBlogsRequest;
+use App\Http\Requests\UpdateBlogsRequest;
+use App\Http\Controllers\Controller;
 
-class TasksController extends Controller
+class BlogsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class TasksController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTasksRequest $request)
+    public function store(StoreBlogsRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class TasksController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Tasks $tasks)
+    public function show(Blogs $blogs)
     {
         //
     }
@@ -43,7 +44,7 @@ class TasksController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tasks $tasks)
+    public function edit(Blogs $blogs)
     {
         //
     }
@@ -51,7 +52,7 @@ class TasksController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTasksRequest $request, Tasks $tasks)
+    public function update(UpdateBlogsRequest $request, Blogs $blogs)
     {
         //
     }
@@ -59,7 +60,7 @@ class TasksController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tasks $tasks)
+    public function destroy(Blogs $blogs)
     {
         //
     }

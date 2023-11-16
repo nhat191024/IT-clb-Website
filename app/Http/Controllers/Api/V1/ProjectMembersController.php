@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Projects;
-use App\Http\Requests\StoreProjectsRequest;
-use App\Http\Requests\UpdateProjectsRequest;
+use App\Models\ProjectMembers;
+use App\Http\Requests\StoreProjectMembersRequest;
+use App\Http\Requests\UpdateProjectMembersRequest;
+use App\Http\Controllers\Controller;
 
-class ProjectsController extends Controller
+class ProjectMembersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class ProjectsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProjectsRequest $request)
+    public function store(StoreProjectMembersRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class ProjectsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Projects $projects)
+    public function show(ProjectMembers $projectMembers)
     {
         //
     }
@@ -43,7 +44,7 @@ class ProjectsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Projects $projects)
+    public function edit(ProjectMembers $projectMembers)
     {
         //
     }
@@ -51,7 +52,7 @@ class ProjectsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProjectsRequest $request, Projects $projects)
+    public function update(UpdateProjectMembersRequest $request, ProjectMembers $projectMembers)
     {
         //
     }
@@ -59,7 +60,7 @@ class ProjectsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Projects $projects)
+    public function destroy(ProjectMembers $projectMembers)
     {
         //
     }

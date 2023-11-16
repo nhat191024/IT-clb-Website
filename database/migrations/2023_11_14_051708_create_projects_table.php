@@ -15,14 +15,12 @@ return new class extends Migration
             $table->string('Id')->primary();
             $table->string('Name');
             $table->string('Image');
-            $table->string('IdProjectMember');
             $table->date('StartDate');
-            $table->time('WorkTime');
+            $table->time('WorkTime')->nullable();
             $table->date('EndDate');
-            $table->string('ProjectSrc');
+            $table->string('ProjectSrc')->nullable();
             $table->string('Status');
-            $table->string('IdTaskList');
-            $table->text('Description');
+            $table->text('Description')->nullable();
             $table->timestamps();
         });
     }
