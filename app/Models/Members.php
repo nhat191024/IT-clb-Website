@@ -9,6 +9,24 @@ class Members extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'Id',
+        'Name',
+        'Surname',
+        'Birthday',
+        'JoinDate',
+        'Major',
+        'Course',
+        'Mail',
+        'Phone',
+        'Avatar',
+        'Username',
+        'Password',
+        'Active',
+        'SocialAccount',
+        'Role',
+    ];
+
     public function major()
     {
         return $this->belongsTo(Majors::class);
