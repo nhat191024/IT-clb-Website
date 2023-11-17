@@ -6,6 +6,7 @@ use App\Models\Majors;
 use App\Http\Requests\StoreMajorsRequest;
 use App\Http\Requests\UpdateMajorsRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\MajorResource;
 
 class MajorsController extends Controller
 {
@@ -38,7 +39,7 @@ class MajorsController extends Controller
      */
     public function show(Majors $majors)
     {
-        //
+        return MajorResource::make($majors);
     }
 
     /**
