@@ -53,7 +53,7 @@
             "password": "vuong1998",
             "active": "1",
             "socialLink": "",
-            "role": "administrator"
+            "role": "A"
         },
         {
             "Id": "PP03204",
@@ -69,7 +69,7 @@
             "password": "khanhPhbpp03204",
             "active": "1",
             "socialLink": "",
-            "role": "Member"
+            "role": "M"
         },
         {
             "Id": "PP02744",
@@ -85,7 +85,7 @@
             "password": "IwAnAgA02744",
             "active": "1",
             "socialLink": "",
-            "role": "Developer"
+            "role": "D"
         },
         {
             "Id": "PP03123",
@@ -101,7 +101,7 @@
             "password": "Ha03123",
             "active": "1",
             "socialLink": "",
-            "role": "member"
+            "role": "M"
         },
         {
             "Id": "PP03175",
@@ -117,7 +117,7 @@
             "password": "phuong03175",
             "active": "1",
             "socialLink": "",
-            "role": "member"
+            "role": "M"
         },
         {
             "Id": "PP03254",
@@ -133,7 +133,7 @@
             "password": "huyen03254",
             "active": "1",
             "socialLink": "",
-            "role": "member"
+            "role": "M"
         }
     ]
 }
