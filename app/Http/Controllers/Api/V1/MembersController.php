@@ -6,6 +6,7 @@ use App\Models\Members;
 use App\Http\Requests\StoreMembersRequest;
 use App\Http\Requests\UpdateMembersRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\MemberResource;
 
 class MembersController extends Controller
 {
@@ -14,7 +15,7 @@ class MembersController extends Controller
      */
     public function index()
     {
-        //
+        return MemberResource::collection(Members::all());
     }
 
     /**
@@ -30,15 +31,18 @@ class MembersController extends Controller
      */
     public function store(StoreMembersRequest $request)
     {
-        //
+        $member = Members::create($request->validated());
+
+        return MemberResource::make($member);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Members $members)
+    public function show($id)
     {
-        //
+        $member = Members::find($id);
+        return MemberResource::make($member);
     }
 
     /**
