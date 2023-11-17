@@ -13,20 +13,20 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->string('Id')->primary();
-            $table->string('Name');
-            $table->string('Surname');
+            $table->string('Name', 10);
+            $table->string('Surname', 30);
             $table->date('Birthday');
             $table->date('JoinDate');
             $table->unsignedBigInteger('Major');
             $table->unsignedBigInteger('Course');
-            $table->string('Mail');
+            $table->string('Mail', 50);
             $table->integer('Phone')->nullable();
             $table->string('Avatar')->nullable();
-            $table->string('Username');
-            $table->string('Password');
+            $table->string('Username', 20);
+            $table->string('Password', 30);
             $table->boolean('Active');
             $table->json('SocialAccount')->nullable();
-            $table->string('Role');
+            $table->string('Role', 1);
             $table->timestamps();
 
             $table->foreign('Major')->references('Id')->on('majors')->onUpdate('cascade')->onDelete('restrict');
