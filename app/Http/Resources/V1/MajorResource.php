@@ -15,7 +15,6 @@ class MajorResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->Id,
             'Name' => $this->Name
         ];
     }

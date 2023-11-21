@@ -28,7 +28,7 @@ class MemberResource extends JsonResource
             'active' => $this->Active,
             'socialAccount' => $this->SocialAccount,
             'role' => $this->Role,
-            'major' => MajorResource::collection($this->whenLoaded('major')),
+            'major' => new MajorResource($this->whenLoaded('major')),
 
         ];
     }

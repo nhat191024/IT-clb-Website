@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Members extends Model
 {
@@ -29,7 +30,7 @@ class Members extends Model
 
     public function major()
     {
-        return $this->belongsTo(Majors::class, 'Major');
+        return $this->belongsTo(Majors::class, 'Major', 'Id');
     }
 
     public function course()

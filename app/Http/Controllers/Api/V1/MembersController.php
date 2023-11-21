@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Members;
-use App\Http\Requests\StoreMembersRequest;
-use App\Http\Requests\UpdateMembersRequest;
+use App\Http\Requests\V1\StoreMembersRequest;
+use App\Http\Requests\V1\UpdateMembersRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\MemberCollection;
 use App\Http\Resources\V1\MemberResource;
@@ -23,12 +23,8 @@ class MembersController extends Controller
 
         $members = Members::where($filterItems);
 
-        $test = true;
-
-        if($test){
-            $members = $members->with('major');
-        }
-
+        $members = $members->with('major');
+        
         return new MemberCollection($members->paginate()->appends($request->query()));
     }
 
@@ -72,7 +68,7 @@ class MembersController extends Controller
      */
     public function update(UpdateMembersRequest $request, Members $members)
     {
-        //
+        $members->update($request->all());
     }
 
     /**

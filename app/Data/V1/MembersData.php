@@ -7,17 +7,17 @@ use App\Data\ApiData;
 class MembersData extends ApiData
 {
     protected $safePrams = [
-        'Id' => ['eq'],
-        'Name' => ['eq'],
-        'Surname' => ['eq'],
-        'Birthday' => ['eq'],
-        'JoinDate' => ['eq'],
-        'Major' => ['eq'],
-        'Course' => ['eq'],
-        'Mail' => ['eq'],
-        'Phone' => ['eq'],
-        'Username' => ['eq'],
-        'Active' => ['eq'],
-        'Role' => ['eq'],
+        'id' => ['eq'],
+        'name' => ['eq'],
+        'surname' => ['eq'],
+        'birthday' => ['eq'],
+        'joinDate' => ['eq'],
+        'major' => ['eq'],
+        'course' => ['eq'],
+        'mail' => ['eq'],
+        'phone' => ['eq'],
+        'username' => ['eq'],
+        'active' => ['eq'],
+        'role' => ['eq'],
     ];
 }
