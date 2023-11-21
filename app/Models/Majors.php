@@ -11,6 +11,6 @@ class Majors extends Model
 
     public function member()
     {
-        return $this->hasMany(Members::class);
+        // return $this->hasMany(Members::class);
     }
 }

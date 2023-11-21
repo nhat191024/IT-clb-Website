@@ -6,16 +6,32 @@ use App\Models\Majors;
 use App\Http\Requests\StoreMajorsRequest;
 use App\Http\Requests\UpdateMajorsRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\MajorCollection;
 use App\Http\Resources\V1\MajorResource;
+use App\Data\V1\MajorsData;
+use Illuminate\Http\Request;
 
 class MajorsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Majors::all();
+
+        // $filter = new MajorsData();
+        // $filterItems = $filter->transform($request);
+
+        // $members = Majors::where($filterItems);
+
+        // $test = true;
+
+        // if ($test) {
+        //     $members = $members->with('member');
+        // }
+
+        // return new MajorCollection($members->paginate()->appends($request->query()));
+        
     }
 
     /**

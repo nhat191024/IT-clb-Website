@@ -6,16 +6,30 @@ use App\Models\Members;
 use App\Http\Requests\StoreMembersRequest;
 use App\Http\Requests\UpdateMembersRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\MemberCollection;
 use App\Http\Resources\V1\MemberResource;
+use Illuminate\Http\Request;
+use App\Data\V1\MembersData;
 
 class MembersController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return MemberResource::collection(Members::all());
+        $filter = new MembersData();
+        $filterItems = $filter->transform($request);
+
+        $members = Members::where($filterItems);
+
+        $test = true;
+
+        if($test){
+            $members = $members->with('major');
+        }
+
+        return new MemberCollection($members->paginate()->appends($request->query()));
     }
 
     /**

@@ -29,7 +29,7 @@ class Members extends Model
 
     public function major()
     {
-        return $this->belongsTo(Majors::class);
+        return $this->belongsTo(Majors::class, 'Major');
     }
 
     public function course()
