@@ -9,8 +9,14 @@ class Blogs extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'Name',
+        'Content',
+        'Author'
+    ];
+
     public function member()
     {
-        return $this->hasOne(Members::class);
+        return $this->hasOne(Members::class, 'Id', 'Author');
     }
 }
