@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         };
 
         foreach ($dataArray['Members'] as $row) {
+            $SA = json_encode(['Facebook' => 'fb.com', 'Discord' => 'discord.com']);
             Members::create([
                 "Id" => $row['Id'],
                 "Name" => $row['name'],
@@ -43,6 +44,7 @@ class DatabaseSeeder extends Seeder
                 "Username" => $row['username'],
                 "Password" => $row['password'],
                 "Active" => $row['active'],
+                "SocialAccount" => $SA,
                 "Role" => $row['role'],
             ]);
         };
