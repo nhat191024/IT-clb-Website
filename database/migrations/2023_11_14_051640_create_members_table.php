@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('Major');
             $table->unsignedBigInteger('Course');
             $table->string('Mail', 50);
-            $table->integer('Phone')->nullable();
+            $table->string('Phone')->nullable();
             $table->string('Avatar')->nullable();
             $table->string('Username', 20);
             $table->string('Password', 30);
