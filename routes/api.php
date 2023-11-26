@@ -25,5 +25,8 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], f
     Route::apiResource('projects', ProjectsController::class);
     Route::apiResource('projectMembers', ProjectMembersController::class);
     Route::apiResource('tasks', TasksController::class);
+    Route::apiResource('blogs', BlogsController::class);
 
+
+    Route::post('projectMembers/bulk', ['uses' => 'ProjectMembersController@bulkStore']);
 });
