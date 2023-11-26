@@ -2,19 +2,30 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Data\V1\BlogData;
 use App\Models\Blogs;
-use App\Http\Requests\StoreBlogsRequest;
-use App\Http\Requests\UpdateBlogsRequest;
+use App\Http\Requests\V1\StoreBlogsRequest;
+use App\Http\Requests\V1\UpdateBlogsRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\BlogCollection;
+use App\Http\Resources\V1\BlogResource;
+use Illuminate\Http\Request;
 
 class BlogsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $filter = new BlogData;
+        $filterItems = $filter->transform($request);
+
+        $blog = Blogs::where($filterItems);
+
+        $blog = $blog->with('member');
+
+        return new BlogCollection($blog->paginate()->appends($request->query()));
     }
 
     /**
@@ -30,15 +41,16 @@ class BlogsController extends Controller
      */
     public function store(StoreBlogsRequest $request)
     {
-        //
+        return new BlogResource(Blogs::create($request->all()));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Blogs $blogs)
+    public function show($id)
     {
-        //
+        $blog = Blogs::find($id);
+        return BlogResource::make($blog);
     }
 
     /**
@@ -52,9 +64,9 @@ class BlogsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBlogsRequest $request, Blogs $blogs)
+    public function update(UpdateBlogsRequest $request, $id)
     {
-        //
+        Blogs::where('Id', $id)->update($request->all());
     }
 
     /**

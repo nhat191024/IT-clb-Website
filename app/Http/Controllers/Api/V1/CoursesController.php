@@ -2,19 +2,29 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Data\V1\CourseData;
 use App\Models\Courses;
-use App\Http\Requests\StoreCoursesRequest;
-use App\Http\Requests\UpdateCoursesRequest;
+use App\Http\Requests\V1\StoreCoursesRequest;
+use App\Http\Requests\V1\UpdateCoursesRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\CourseCollection;
+use App\Http\Resources\V1\CourseResource;
+use App\Models\Blogs;
+use Illuminate\Http\Request;
 
 class CoursesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $filter = new CourseData();
+        $filterItems = $filter->transform($request);
+
+        $course = Courses::where($filterItems);
+
+        return new CourseCollection($course->paginate()->appends($request->query()));
     }
 
     /**
@@ -30,15 +40,16 @@ class CoursesController extends Controller
      */
     public function store(StoreCoursesRequest $request)
     {
-        //
+        return new CourseResource(Blogs::create($request->all()));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Courses $courses)
+    public function show($id)
     {
-        //
+        $Course = Courses::find($id);
+        return CourseResource::make($Course);
     }
 
     /**
@@ -52,9 +63,9 @@ class CoursesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCoursesRequest $request, Courses $courses)
+    public function update(UpdateCoursesRequest $request, $id)
     {
-        //
+        Courses::where('Id', $id)->update($request->all());
     }
 
     /**

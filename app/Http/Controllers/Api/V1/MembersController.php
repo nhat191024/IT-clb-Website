@@ -24,7 +24,7 @@ class MembersController extends Controller
         $members = Members::where($filterItems);
 
         $members = $members->with('major');
-        
+
         return new MemberCollection($members->paginate()->appends($request->query()));
     }
 
@@ -41,9 +41,7 @@ class MembersController extends Controller
      */
     public function store(StoreMembersRequest $request)
     {
-        $member = Members::create($request->validated());
-
-        return MemberResource::make($member);
+        return new MemberResource(Members::create($request->all()));
     }
 
     /**
@@ -66,9 +64,9 @@ class MembersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMembersRequest $request, Members $members)
+    public function update(UpdateMembersRequest $request, $id)
     {
-        $members->update($request->all());
+        Members::where('Id', $id)->update($request->all());
     }
 
     /**

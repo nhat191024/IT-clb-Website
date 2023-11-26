@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\ProjectMembers;
-use App\Http\Requests\StoreProjectMembersRequest;
-use App\Http\Requests\UpdateProjectMembersRequest;
+use App\Http\Requests\V1\StoreProjectMembersRequest;
+use App\Http\Requests\V1\BulkStoreProjectMembersRequest;
+use App\Http\Requests\V1\UpdateProjectMembersRequest;
 use App\Http\Controllers\Controller;
 
 class ProjectMembersController extends Controller
@@ -31,6 +32,14 @@ class ProjectMembersController extends Controller
     public function store(StoreProjectMembersRequest $request)
     {
         //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function bulkStore(BulkStoreProjectMembersRequest $request)
+    {
+        ProjectMembers::insert($request->toArray());
     }
 
     /**

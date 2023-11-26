@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Majors;
-use App\Http\Requests\StoreMajorsRequest;
-use App\Http\Requests\UpdateMajorsRequest;
+use App\Http\Requests\V1\StoreMajorsRequest;
+use App\Http\Requests\V1\UpdateMajorsRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\MajorCollection;
 use App\Http\Resources\V1\MajorResource;
@@ -19,19 +19,13 @@ class MajorsController extends Controller
     public function index(Request $request)
     {
 
-        // $filter = new MajorsData();
-        // $filterItems = $filter->transform($request);
+        $filter = new MajorsData();
+        $filterItems = $filter->transform($request);
 
-        // $members = Majors::where($filterItems);
+        $Major = Majors::where($filterItems);
 
-        // $test = true;
+        return new MajorCollection($Major->paginate()->appends($request->query()));
 
-        // if ($test) {
-        //     $members = $members->with('member');
-        // }
-
-        // return new MajorCollection($members->paginate()->appends($request->query()));
-        
     }
 
     /**
@@ -53,9 +47,10 @@ class MajorsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Majors $majors)
+    public function show($id)
     {
-        return MajorResource::make($majors);
+        $major = Majors::find($id);
+        return MajorResource::make($major);
     }
 
     /**
@@ -69,9 +64,12 @@ class MajorsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMajorsRequest $request, Majors $majors)
+    public function update(UpdateMajorsRequest $request, $id)
     {
-        //
+        $major = Majors::where('Id', $id);
+        $r = $major->update($request->all());
+
+        return $r;
     }
 
     /**
