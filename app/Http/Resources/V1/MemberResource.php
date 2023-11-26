@@ -21,15 +21,16 @@ class MemberResource extends JsonResource
             'surname' => $this->Surname,
             'birthday' => $this->Birthday,
             'joinDate' => $this->JoinDate,
-            'course' => $this->Course,
+            'majorId' => $this->Major,
+            'courseId' => $this->Course,
             'mail' => $this->Mail,
             'phone' => $this->Phone,
             'username' => $this->Username,
+            'password' => $this->Password,
             'active' => $this->Active,
             'socialAccount' => $this->SocialAccount,
             'role' => $this->Role,
             'major' => new MajorResource($this->whenLoaded('major')),
-
         ];
     }
 }
