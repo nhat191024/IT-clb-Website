@@ -23,21 +23,21 @@ class StoreMembersRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'Id' => ['required|string|min:7|max:10'],
-            'Name' => ['required|string|max:10'],
-            'Surname' => ['required|string|max:50'],
-            'Birthday' => ['required|date'],
-            'JoinDate' => ['required|date'],
-            'Major' => ['required|integer|gte:0'],
-            'Course' => ['required|integer|gte:0'],
-            'Mail' => ['required|email'],
-            'Phone' => ['integer|min:10|max:12'],
+            'Id' => ['required', 'string', 'min:7', 'max:10'],
+            'Name' => ['required', 'string', 'max:10'],
+            'Surname' => ['required', 'string', 'max:50'],
+            'Birthday' => ['required', 'date'],
+            'JoinDate' => ['required', 'date'],
+            'Major' => ['required', 'integer', 'gte:0'],
+            'Course' => ['required', 'integer', 'gte:0'],
+            'Mail' => ['required', 'email'],
+            'Phone' => ['integer', 'min:10', 'max:12'],
             'Avatar' => ['string'],
-            'Username' => ['required|string|max:20'],
-            'Password' => ['required|string|max:20'],
-            'Active' => ['required|boolean'],
+            'Username' => ['required', 'string', 'max:20'],
+            'Password' => ['required', 'string', 'max:20'],
+            'Active' => ['required', 'integer'],
             'SocialAccount' => ['json'],
-            'Role' => ['required|string|max:1', Rule::in(['M', 'D', 'A'])],
+            'Role' => ['required', 'string', 'max:1', Rule::in(['M', 'D', 'A'])],
         ];
     }
 }
