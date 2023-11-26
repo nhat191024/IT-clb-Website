@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->string('Id')->primary();
             $table->string('Name');
-            $table->string('Image');
+            $table->string('Image')->nullable();
             $table->date('StartDate');
             $table->time('WorkTime')->nullable();
-            $table->date('EndDate');
+            $table->date('EndDate')->nullable();
             $table->string('ProjectSrc')->nullable();
             $table->string('Status');
             $table->text('Description')->nullable();
