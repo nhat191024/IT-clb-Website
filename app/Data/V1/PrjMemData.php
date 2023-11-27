@@ -4,10 +4,10 @@ namespace App\Data\V1;
 
 use App\Data\ApiData;
 
-class MembersData extends ApiData
+class PrjMemData extends ApiData
 {
     protected $safePrams = [
-        'id' => ['eq'],
+        'Id' => ['eq'],
         'Project' => ['eq'],
         'Member' => ['eq'],
     ];

@@ -4,7 +4,7 @@ namespace App\Data\V1;
 
 use App\Data\ApiData;
 
-class MembersData extends ApiData
+class PrjTaskData extends ApiData
 {
     protected $safePrams = [
         'Id' => ['eq'],

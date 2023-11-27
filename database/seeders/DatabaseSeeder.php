@@ -1,9 +1,12 @@
 <?php
+
 namespace Database\Seeders;
 
 use App\Models\Courses;
 use App\Models\Majors;
 use App\Models\Members;
+use App\Models\ProjectMembers;
+use App\Models\Projects;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -46,6 +49,22 @@ class DatabaseSeeder extends Seeder
                 "Active" => $row['active'],
                 "SocialAccount" => $SA,
                 "Role" => $row['role'],
+            ]);
+        };
+
+        foreach ($dataArray['Project'] as $row) {
+            Projects::create([
+                "Id" => $row['Id'],
+                "Name" => $row['Name'],
+                "StartDate" => $row['StartDate'],
+                "Status" => $row['Status'],
+            ]);
+        };
+
+        foreach ($dataArray['ProjectMember'] as $row) {
+            ProjectMembers::create([
+                "Project" => $row['Project'],
+                "Member" => $row['Member']
             ]);
         };
     }

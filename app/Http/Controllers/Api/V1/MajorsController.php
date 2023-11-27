@@ -18,14 +18,12 @@ class MajorsController extends Controller
      */
     public function index(Request $request)
     {
-
         $filter = new MajorsData();
         $filterItems = $filter->transform($request);
 
         $Major = Majors::where($filterItems);
 
         return new MajorCollection($Major->paginate()->appends($request->query()));
-
     }
 
     /**
@@ -41,7 +39,7 @@ class MajorsController extends Controller
      */
     public function store(StoreMajorsRequest $request)
     {
-        //
+        return new MajorResource(Majors::create($request->all()));
     }
 
     /**
@@ -66,10 +64,7 @@ class MajorsController extends Controller
      */
     public function update(UpdateMajorsRequest $request, $id)
     {
-        $major = Majors::where('Id', $id);
-        $r = $major->update($request->all());
-
-        return $r;
+        Majors::where('Id', $id)->update($request->all());
     }
 
     /**

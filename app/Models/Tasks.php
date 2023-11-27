@@ -11,11 +11,11 @@ class Tasks extends Model
 
     public function project()
     {
-        return $this->belongsTo(Projects::class);
+        return $this->belongsTo(Projects::class, 'Project', 'Id');
     }
 
     public function member()
     {
-        return $this->hasMany(Members::class);
+        return $this->hasMany(Members::class, 'Id', 'WorkMember');
     }
 }

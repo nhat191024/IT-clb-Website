@@ -2,19 +2,28 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Data\V1\PrjData;
 use App\Models\Projects;
-use App\Http\Requests\StoreProjectsRequest;
-use App\Http\Requests\UpdateProjectsRequest;
+use App\Http\Requests\V1\StoreProjectsRequest;
+use App\Http\Requests\V1\UpdateProjectsRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\ProjectCollection;
+use App\Http\Resources\V1\ProjectResource;
+use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $filter = new PrjData();
+        $filterItems = $filter->transform($request);
+
+        $project = Projects::where($filterItems);
+
+        return new ProjectCollection($project->paginate()->appends($request->query()));
     }
 
     /**
@@ -30,15 +39,16 @@ class ProjectsController extends Controller
      */
     public function store(StoreProjectsRequest $request)
     {
-        //
+        return new ProjectResource(Projects::create($request->all()));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Projects $projects)
+    public function show($id)
     {
-        //
+        $member = Projects::find($id);
+        return ProjectResource::make($member);
     }
 
     /**
@@ -52,9 +62,9 @@ class ProjectsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProjectsRequest $request, Projects $projects)
+    public function update(UpdateProjectsRequest $request, $id)
     {
-        //
+        Projects::where('Id', $id)->update($request->all());
     }
 
     /**

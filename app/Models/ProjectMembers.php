@@ -10,11 +10,11 @@ class ProjectMembers extends Model
     use HasFactory;
 
     public function member(){
-        return $this->hasMany(Members::class);
+        return $this->hasMany(Members::class, 'Id', 'Member');
     }
 
     public function project()
     {
-        return $this->hasMany(Projects::class);
+        return $this->hasMany(Projects::class, 'Id', 'Project');
     }
 }
