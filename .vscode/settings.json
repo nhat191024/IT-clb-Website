@@ -1,8 +1,13 @@
 {
     "cSpell.words": [
         "CLBWEB",
+        "daisyui",
+        "Fpoly",
         "Inno",
         "laravel",
-        "Phbpp"
-    ]
+        "Phbpp",
+        "tailwindcss",
+        "Vite"
+    ],
+    "css.lint.unknownAtRules": "ignore"
 }
