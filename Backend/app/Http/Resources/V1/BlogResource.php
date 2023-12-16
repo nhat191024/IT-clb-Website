@@ -19,7 +19,9 @@ class BlogResource extends JsonResource
             'name' => $this->Name,
             'content' => $this->Content,
             'authorId' => $this->Author,
-            'author' =>new MemberResource($this->whenLoaded('member')),
+            'view' => $this->View,
+            'like' => $this->Like,
+            'author' =>new UserResource($this->whenLoaded('member')),
         ];
     }
 }

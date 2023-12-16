@@ -25,9 +25,12 @@ class TasksController extends Controller
         $task = Tasks::where($filterItems);
 
         $task = $task->with('project');
-        $task = $task->with('member');
+        $task = $task->with('user');
 
-        return new TaskCollection($task->paginate()->appends($request->query()));
+        return response([
+            'Message' => 'success',
+            'Task' => new TaskCollection($task->paginate()->appends($request->query()))
+        ]);
     }
 
     /**
@@ -77,5 +80,15 @@ class TasksController extends Controller
     public function destroy(Tasks $tasks)
     {
         //
+    }
+
+    public function quantity(Request $request)
+    {
+        $filter = new PrjTaskData();
+        $filterItems = $filter->transform($request);
+
+        $task = Tasks::where($filterItems)->count();
+
+        return $task;
     }
 }

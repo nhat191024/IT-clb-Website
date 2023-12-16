@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'second': '#2a323b'
+      }
+    },
   },
   plugins: [require("daisyui")],
 }

@@ -34,13 +34,14 @@ class UpdateProjectsRequest extends FormRequest
             ];
         } else {
             return [
-                'Name' => ['required', 'string', 'max:255'],
-                'StartDate' => ['required', 'date',],
-                'WorkTime' => ['required', 'time'],
-                'EndDate' => ['required', 'date'],
-                'ProjectSrc' => ['required', 'string'],
-                'Status' => ['required', 'string'],
-                'Description' => ['required', 'string']
+                'Name' => ['sometimes', 'string', 'max:255'],
+                'Leader' => ['sometimes', 'string', 'max:255'],
+                'StartDate' => ['sometimes', 'date',],
+                'WorkTime' => ['sometimes',  'time'],
+                'EndDate' => ['sometimes',  'date'],
+                'ProjectSrc' => ['sometimes',  'string'],
+                'Status' => ['sometimes',  'string'],
+                'Description' => ['sometimes', 'string']
             ];
         }
     }

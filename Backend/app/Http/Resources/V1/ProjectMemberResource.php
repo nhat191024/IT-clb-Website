@@ -19,8 +19,8 @@ class ProjectMemberResource extends JsonResource
             'Id' => $this->id,
             'ProjectId' => $this->Project,
             'MemberId' => $this->Member,
-            'ProjectInfo' => new ProjectCollection($this->whenLoaded('project')),
-            'MemberInfo' => new MemberCollection($this->whenLoaded('member'))
+            'ProjectInfo' => new ProjectResource($this->whenLoaded('project')),
+            'MemberInfo' => new UserCollection($this->whenLoaded('user'))
         ];
     }
 }

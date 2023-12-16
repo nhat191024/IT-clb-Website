@@ -23,7 +23,7 @@ class BlogsController extends Controller
 
         $blog = Blogs::where($filterItems);
 
-        $blog = $blog->with('member');
+        $blog = $blog->with('user');
 
         return new BlogCollection($blog->paginate()->appends($request->query()));
     }

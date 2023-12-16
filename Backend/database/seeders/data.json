@@ -138,14 +138,62 @@
         {
             "Id": "CLBWEB",
             "Name": "Website CLB",
+            "Image": "../../assets/logo.png",
+            "Leader": "Iwanaga",
             "StartDate": "2023-10-31",
+            "EndDate": "2023-12-16",
+            "Status": "Working"
+        },
+        {
+            "Id": "GAME",
+            "Name": "GAME",
+            "Image": "../../assets/logo.png",
+            "Leader": "Iwanaga",
+            "StartDate": "2023-10-31",
+            "EndDate": "2023-12-16",
             "Status": "Working"
         }
     ],
     "ProjectMember": [
         {
             "Project": "CLBWEB",
-            "Member": "PP02744"
+            "Member": 3
+        },
+        {
+            "Project": "CLBWEB",
+            "Member": 1
+        },
+        {
+            "Project": "GAME",
+            "Member": 3
+        }
+    ],
+    "Task": [
+        {
+            "Task": "Database Design",
+            "Project": "CLBWEB",
+            "WorkMember": 3
+        },
+        {
+            "Task": "UI Design",
+            "Project": "CLBWEB",
+            "WorkMember": 3
+        }
+    ],
+    "Blog": [
+        {
+            "Name": "Cách Xây Dựng Cơ Sở Dữ Liệu",
+            "Content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet justo urna. Nullam congue fermentum convallis. Cras ornare felis sed eleifend pulvinar. Vestibulum euismod dui neque, sed fringilla lectus gravida vel. Curabitur in nisi tincidunt, fermentum libero sed, ultricies lectus. Praesent rutrum semper nulla, vehicula tincidunt lorem iaculis a. Integer hendrerit est enim, non rhoncus urna aliquet et. Aenean ac magna turpis. Morbi feugiat diam a purus ullamcorper vehicula. Nulla pharetra tincidunt bibendum.",
+            "Author": 1,
+            "View": "0",
+            "Like": "0"
+        },
+        {
+            "Name": "Cách Thiết Kế Landing Page",
+            "Content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet justo urna. Nullam congue fermentum convallis. Cras ornare felis sed eleifend pulvinar. Vestibulum euismod dui neque, sed fringilla lectus gravida vel. Curabitur in nisi tincidunt, fermentum libero sed, ultricies lectus. Praesent rutrum semper nulla, vehicula tincidunt lorem iaculis a. Integer hendrerit est enim, non rhoncus urna aliquet et. Aenean ac magna turpis. Morbi feugiat diam a purus ullamcorper vehicula. Nulla pharetra tincidunt bibendum.",
+            "Author": 1,
+            "View": "0",
+            "Like": "0"
         }
     ]
 }

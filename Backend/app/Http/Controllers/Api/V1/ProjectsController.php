@@ -39,7 +39,17 @@ class ProjectsController extends Controller
      */
     public function store(StoreProjectsRequest $request)
     {
+        // Projects::create([
+        //     "Id" => $request->Id,
+        //     "Name" => $row['Name'],
+        //     "Image" => $row['Image'],
+        //     "Leader" => $row['Leader'],
+        //     "StartDate" => $row['StartDate'],
+        //     "EndDate" => $row['EndDate'],
+        //     "Status" => $row['Status'],
+        // ]);
         return new ProjectResource(Projects::create($request->all()));
+        // return $request;
     }
 
     /**
@@ -70,8 +80,10 @@ class ProjectsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Projects $projects)
+    public function delete($id)
     {
-        //
+
+        $result = Projects::where('Id', $id)->delete();
+        return $result;
     }
 }

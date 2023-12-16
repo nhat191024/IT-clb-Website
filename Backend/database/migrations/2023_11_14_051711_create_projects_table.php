@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('Id')->primary();
             $table->string('Name');
             $table->string('Image')->nullable();
+            $table->String('Leader');
             $table->date('StartDate');
             $table->time('WorkTime')->nullable();
             $table->date('EndDate')->nullable();
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->string('Status');
             $table->text('Description')->nullable();
             $table->timestamps();
+
         });
     }
 

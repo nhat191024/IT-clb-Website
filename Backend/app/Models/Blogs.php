@@ -15,8 +15,8 @@ class Blogs extends Model
         'Author'
     ];
 
-    public function member()
+    public function user()
     {
-        return $this->hasOne(Members::class, 'Id', 'Author');
+        return $this->hasOne(User::class, 'Id', 'Author');
     }
 }

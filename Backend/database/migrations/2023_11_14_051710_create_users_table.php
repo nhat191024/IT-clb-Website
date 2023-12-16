@@ -11,22 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('members', function (Blueprint $table) {
-            $table->string('Id')->primary();
-            $table->string('Name', 10);
-            $table->string('Surname', 30);
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('Name', 30);
             $table->date('Birthday');
             $table->date('JoinDate');
             $table->unsignedBigInteger('Major');
             $table->unsignedBigInteger('Course');
-            $table->string('Mail', 50);
             $table->string('Phone')->nullable();
             $table->string('Avatar')->nullable();
-            $table->string('Username', 20);
-            $table->string('Password', 30);
             $table->boolean('Active');
             $table->json('SocialAccount')->nullable();
             $table->string('Role', 1);
+            $table->string('username');
+            $table->string('Email')->unique();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('Major')->references('Id')->on('majors')->onUpdate('cascade')->onDelete('restrict');
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('users');
     }
 };

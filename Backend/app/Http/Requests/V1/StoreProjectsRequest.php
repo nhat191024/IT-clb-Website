@@ -22,13 +22,13 @@ class StoreProjectsRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'Id' => ['required', 'string', 'max:255'],
             'Name' => ['required', 'string', 'max:255'],
+            'Leader' => ['required', 'string', 'max:255'],
             'StartDate' => ['required', 'date',],
-            'WorkTime' => ['required', 'time'],
             'EndDate' => ['required', 'date'],
             'ProjectSrc' => ['required', 'string'],
             'Status' => ['required', 'string'],
-            'Description' => ['required', 'string']
         ];
     }
 }

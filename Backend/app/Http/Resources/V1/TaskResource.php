@@ -16,11 +16,12 @@ class TaskResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'job' => $this->Job,
+            'Task' => $this->Task,
+            'Status' => $this->Status,
             'ProjectId' => $this->Project,
             'WorkMemberId' => $this->WorkMember,
             'ProjectInfo' => new ProjectResource($this->whenLoaded('project')),
-            'MemberInfo' => new MemberCollection($this->whenLoaded('member'))
+            'MemberInfo' => new UserCollection($this->whenLoaded('member'))
         ];
     }
 }

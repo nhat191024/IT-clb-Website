@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar bg-base-100">
+    <div class="navbar bg-base-100 fixed">
         <div class="navbar-start">
             <a class="btn btn-ghost text-xl">
                 <img src="../assets/logo.png" alt="logo" width="40" height="40" class="rounded-full">
@@ -15,7 +15,7 @@
             </ul>
         </div>
         <div class="navbar-end">
-            <a class="btn">Đăng Nhập</a>
+            <a href="/login" class="btn">Đăng Nhập</a>
         </div>
     </div>
 </template>

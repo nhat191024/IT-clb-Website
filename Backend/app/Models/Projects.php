@@ -9,6 +9,16 @@ class Projects extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'Id',
+        'Name',
+        'Leader',
+        'StartDate',
+        'EndDate',
+        'ProjectSrc',
+        'Status'
+    ];
+
     public function projectMembers()
     {
         return $this->hasOne(ProjectMembers::class);
@@ -16,6 +26,6 @@ class Projects extends Model
 
     public function task()
     {
-        return $this->hasOne(Tasks::class);
+        return $this->hasMany(Tasks::class);
     }
 }

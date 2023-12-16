@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('project_members', function (Blueprint $table) {
             $table->id();
             $table->string('Project');
-            $table->string('Member');
+            $table->unsignedBigInteger('Member');
             $table->timestamps();
 
             $table->foreign('Project')->references('Id')->on('projects')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('Member')->references('Id')->on('members')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('Member')->references('Id')->on('users')->onUpdate('cascade')->onDelete('cascade');
 
         });
     }

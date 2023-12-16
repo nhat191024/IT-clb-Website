@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('Job');
+            $table->string('Task');
             $table->string('Project');
-            $table->string('WorkMember')->nullable();
+            $table->boolean('Status')->default(false);
+            $table->unsignedBigInteger('WorkMember')->nullable();
             $table->timestamps();
 
             $table->foreign('Project')->references('Id')->on('projects')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('WorkMember')->references('Id')->on('members')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('WorkMember')->references('Id')->on('users')->onUpdate('cascade')->onDelete('set null');
         });
     }
 

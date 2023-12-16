@@ -25,9 +25,13 @@ class ProjectMembersController extends Controller
         $ProjectMembers = ProjectMembers::where($filterItems);
 
         $ProjectMembers = $ProjectMembers->with('project');
-        $ProjectMembers = $ProjectMembers->with('member');
+        $ProjectMembers = $ProjectMembers->with('user');
 
-        return new ProjectMemberCollection($ProjectMembers->paginate()->appends($request->query()));
+        return
+            response([
+                'Message' => 'success',
+                'ProjectMem' => new ProjectMemberCollection($ProjectMembers->paginate()->appends($request->query()))
+            ]);
     }
 
     /**
@@ -60,7 +64,11 @@ class ProjectMembersController extends Controller
     public function show($id)
     {
         $ProjectMember = ProjectMembers::find($id);
-        return ProjectMemberResource::make($ProjectMember);
+
+        return response([
+            'Message' => 'success',
+            'Project' => ProjectMemberResource::make($ProjectMember)
+        ]);
     }
 
     /**
@@ -85,5 +93,15 @@ class ProjectMembersController extends Controller
     public function destroy(ProjectMembers $projectMembers)
     {
         //
+    }
+
+    public function prjId(Request $request)
+    {
+        $filter = new PrjMemData();
+        $filterItems = $filter->transform($request);
+
+        $ProjectMembers = ProjectMembers::where($filterItems)->select('Project')->first();
+
+        return $ProjectMembers;
     }
 }

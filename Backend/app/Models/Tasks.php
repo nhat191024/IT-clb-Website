@@ -14,8 +14,8 @@ class Tasks extends Model
         return $this->belongsTo(Projects::class, 'Project', 'Id');
     }
 
-    public function member()
+    public function user()
     {
-        return $this->hasMany(Members::class, 'Id', 'WorkMember');
+        return $this->hasMany(User::class, 'Id', 'WorkMember');
     }
 }

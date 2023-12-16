@@ -9,12 +9,12 @@ class ProjectMembers extends Model
 {
     use HasFactory;
 
-    public function member(){
-        return $this->hasMany(Members::class, 'Id', 'Member');
+    public function user(){
+        return $this->hasMany(User::class, 'id', 'Member');
     }
 
     public function project()
     {
-        return $this->hasMany(Projects::class, 'Id', 'Project');
+        return $this->hasOne(Projects::class, 'Id', 'Project');
     }
 }
