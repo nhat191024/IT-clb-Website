@@ -8,10 +8,12 @@
                     <th>Birthday</th>
                     <th>Major</th>
                     <th>Course</th>
+                    <th>Email</th>
                     <th>Phone</th>
                     <th>Active</th>
                     <th>Role</th>
                     <th>Username</th>
+                    <th>JoinDate</th>
                     <th>Action</th>
                     <th>Action</th>
                 </tr>
@@ -38,6 +40,9 @@
                         <p>{{ member.course.name }}</p>
                     </td>
                     <td>
+                        <p>{{ member.email }}</p>
+                    </td>
+                    <td>
                         <p>{{ member.phone }}</p>
                     </td>
                     <td>
@@ -48,6 +53,9 @@
                     </td>
                     <td>
                         <p>{{ member.username }}</p>
+                    </td>
+                    <td>
+                        <p>{{ member.joinDate }}</p>
                     </td>
                     <td>
                         <button class="btn btn-error" @click.prevent="DeleteMem(member.id)">Delete</button>
@@ -61,7 +69,7 @@
                 <th></th>
             </tfoot>
         </table>
-        <a href="#prjCreate" class="btn btn-info col-start-4 col-span-2 row-start-12 z-10">Create</a>
+        <a href="#memCreate" class="btn btn-info col-start-4 col-span-2 row-start-12 z-10">Create</a>
     </div>
     <div class="w-full h-screen grid grid-cols-12 grid-rows-12 gap-5">
 
@@ -89,6 +97,11 @@
                 class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
             <ErrorMessage name="course" />
 
+            <label for="email" class="pl-12 text-xl font-bold">Email</label>
+            <Field type="text" name="email" v-model="updateData.email"
+                class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
+            <ErrorMessage name="email" />
+
             <label for="phone" class="pl-12 text-xl font-bold">phone</label>
             <Field type="number" name="phone" v-model="updateData.phone"
                 class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
@@ -108,50 +121,70 @@
             <Field type="text" name="username" v-model="updateData.username"
                 class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
             <ErrorMessage name="username" />
+
+            <label for="joinDate" class="pl-12 text-xl font-bold">JoinDate</label>
+            <Field type="date" name="course" v-model="updateData.joinDate"
+                class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
+            <ErrorMessage name="joinDate" />
             <button class="btn btn-success text-xl font-bold mx-10" type="submit">Save</button>
         </form>
     </div>
 
     <div class="w-full h-screen grid grid-cols-12 grid-rows-12 gap-5">
 
-        <form @submit.prevent="createPrj" id="prjCreate"
+        <form @submit.prevent="createMem" id="memCreate"
             class="col-start-6 col-span-4 row-start-3 row-span-full flex flex-col gap-3 w-full h-full">
-            <h3 class="font-bold text-3xl pb-10 text-center">Create Project</h3>
+            <h3 class="font-bold text-3xl pb-10 text-center">Member Update</h3>
 
-            <label for="id" class="pl-12 text-xl font-bold">Project Id</label>
-            <Field type="text" name="id" v-model="CreateData.id"
-                class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
-            <ErrorMessage name="id" />
-
-            <label for="name" class="pl-12 text-xl font-bold">Project Name</label>
-            <Field type="text" name="name" v-model="CreateData.name"
+            <label for="name" class="pl-12 text-xl font-bold">Member Name</label>
+            <Field type="text" name="name" v-model="updateData.name"
                 class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
             <ErrorMessage name="name" />
 
-            <label for="leader" class="pl-12 text-xl font-bold">Leader</label>
-            <Field type="text" name="leader" v-model="CreateData.leader"
+            <label for="birthday" class="pl-12 text-xl font-bold">Birthday</label>
+            <Field type="date" name="birthday" v-model="updateData.birthday"
                 class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
-            <ErrorMessage name="leader" />
+            <ErrorMessage name="birthday" />
 
-            <label for="startDate" class="pl-12 text-xl font-bold">Start Date</label>
-            <Field type="date" name="startDate" v-model="CreateData.startDate"
+            <label for="major" class="pl-12 text-xl font-bold">Major</label>
+            <Field type="text" name="major" v-model="updateData.major"
                 class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
-            <ErrorMessage name="startDate" />
+            <ErrorMessage name="major" />
 
-            <label for="endDate" class="pl-12 text-xl font-bold">End Date</label>
-            <Field type="date" name="endDate" v-model="CreateData.endDate"
+            <label for="course" class="pl-12 text-xl font-bold">Course</label>
+            <Field type="text" name="course" v-model="updateData.course"
                 class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
-            <ErrorMessage name="endDate" />
+            <ErrorMessage name="course" />
 
-            <label for="projectSrc" class="pl-12 text-xl font-bold">Project Src</label>
-            <Field type="text" name="projectSrc" v-model="CreateData.projectSrc"
+            <label for="email" class="pl-12 text-xl font-bold">Email</label>
+            <Field type="text" name="email" v-model="updateData.email"
                 class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
-            <ErrorMessage name="projectSrc" />
+            <ErrorMessage name="email" />
 
-            <label for="status" class="pl-12 text-xl font-bold">Status</label>
-            <Field type="text" name="status" v-model="CreateData.status"
+            <label for="phone" class="pl-12 text-xl font-bold">phone</label>
+            <Field type="number" name="phone" v-model="updateData.phone"
                 class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
-            <ErrorMessage name="status" />
+            <ErrorMessage name="phone" />
+
+            <label for="active" class="pl-12 text-xl font-bold">Active</label>
+            <Field type="text" name="active" v-model="updateData.active"
+                class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
+            <ErrorMessage name="active" />
+
+            <label for="role" class="pl-12 text-xl font-bold">Role</label>
+            <Field type="text" name="role" v-model="updateData.role"
+                class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
+            <ErrorMessage name="role" />
+
+            <label for="username" class="pl-12 text-xl font-bold">username</label>
+            <Field type="text" name="username" v-model="updateData.username"
+                class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
+            <ErrorMessage name="username" />
+
+            <label for="joinDate" class="pl-12 text-xl font-bold">JoinDate</label>
+            <Field type="date" name="course" v-model="updateData.joinDate"
+                class="h-10 rounded-xl mx-10 px-4 text-lg text-white border-2 border-white bg-[#1d232a]" />
+            <ErrorMessage name="joinDate" />
             <button class="btn btn-success text-xl font-bold mx-10" type="submit">Save</button>
         </form>
     </div>
@@ -159,7 +192,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { Api, DeleteMember, UpdateProject, CreateProject } from '../../api/api';
+import { Api, DeleteMember, UpdateProject, CreateProject, UpdateMember } from '../../api/api';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 
 const members = ref()
@@ -171,20 +204,27 @@ const updateData = ref({
     birthday: '',
     major: '',
     course: '',
+    email: '',
     phone: '',
     active: '',
     role: '',
-    username: ''
+    username: '',
+    joinDate: ''
 })
 
 const CreateData = ref({
     id: '',
+    index: "",
     name: '',
-    leader: '',
-    startDate: '',
-    endDate: '',
-    projectSrc: '',
-    status: '',
+    birthday: '',
+    major: '',
+    course: '',
+    email: '',
+    phone: '',
+    active: '',
+    role: '',
+    username: '',
+    joinDate: ''
 })
 
 
@@ -192,7 +232,7 @@ onMounted(async () => {
     const memberData = await Api.get(`/members`);
     members.value = memberData.data.data;
 
-    console.log(members.value);
+    console.log(memberData.data.data);
 })
 
 const updateMemberId = (memberId, index) => {
@@ -205,36 +245,49 @@ const updateMem = async () => {
         const index = updateData.value.index;
 
         if (updateData.value.name == '') {
-            updateData.value.name = project.value[index].Name
+            updateData.value.name = project.value[index].name
         }
-        if (updateData.value.leader == '') {
-            updateData.value.leader = project.value[index].Leader
+        if (updateData.value.birthday == '') {
+            updateData.value.birthday = project.value[index].birthday
         }
-        if (updateData.value.startDate == '') {
-            updateData.value.startDate = project.value[index].StartDate
+        if (updateData.value.major == '') {
+            updateData.value.major = project.value[index].Major.Name
         }
-        if (updateData.value.endDate == '') {
-            updateData.value.endDate = project.value[index].EndDate
+        if (updateData.value.course == '') {
+            updateData.value.course = project.value[index].course.name
         }
-        if (updateData.value.projectSrc == '') {
-            updateData.value.projectSrc = project.value[index].ProjectSrc
+        if (updateData.value.email == '') {
+            updateData.value.email = project.value[index].email
         }
-        if (updateData.value.status == '') {
-            updateData.value.status = project.value[index].Status
+        if (updateData.value.phone == '') {
+            updateData.value.phone = project.value[index].phone
+        }
+        if (updateData.value.active == '') {
+            updateData.value.active = project.value[index].active
+        }
+        if (updateData.value.role == '') {
+            updateData.value.role = project.value[index].role
+        }
+        if (updateData.value.username == '') {
+            updateData.value.username = project.value[index].username
+        }
+        if (updateData.value.joinDate == '') {
+            updateData.value.joinDate = project.value[index].joinDate
         }
 
-
-
-        console.log(project.value[index].Status)
-
-        const result = await UpdateProject(CreateData.value.name, updateData.value.leader, updateData.value.startDate, updateData.value.endDate, updateData.value.projectSrc, updateData.value.status)
+        const result = await UpdateMember(updateData.value.id, updateData.value.name, updateData.value.birthday, updateData.value.major, updateData.value.course, updateData.value.email, updateData.value.phone, updateData.value.active, updateData.value.role, updateData.value.username, updateData.value.joinDate)
+            .then(function (responsive) {
+                window.location.reload();
+            })
         console.log(result);
-    } catch (e) { }
+    } catch (e) {
+        console.log(e);
+    }
 }
 
-const createPrj = async () => {
+const createMem = async () => {
     try {
-        const result = await CreateProject(CreateData.value.id, CreateData.value.name, CreateData.value.leader, CreateData.value.startDate, CreateData.value.endDate, CreateData.value.projectSrc, CreateData.value.status)
+        const result = await CreateMember(CreateData.value.name, CreateData.value.birthday, CreateData.value.major, CreateData.value.course, CreateData.value.email, CreateData.value.phone, CreateData.value.active, CreateData.value.role, CreateData.value.username, CreateData.value.joinDate)
         console.log(result);
     } catch (e) { }
 }
