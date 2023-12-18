@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <ul class="menu w-full h-full row-start-3 row-span-6 place-content-center gap-6 text-xl font-bold">
+        <ul class="menu w-full h-full row-start-3 row-span-7 place-content-center gap-6 text-xl font-bold">
             <li>
                 <router-link :to="{ name: 'dashboard' }" :class="{ 'active': activeTab === 'dashboard' }"
                     @click="setActiveTab('dashboard')">
