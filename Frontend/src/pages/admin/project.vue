@@ -59,7 +59,7 @@
     </div>
     <div class="w-full h-screen grid grid-cols-12 grid-rows-12 gap-5">
 
-        <form @submit.prevent="updatePrj(project.Id)" id="prjUpdate"
+        <form @submit.prevent="updatePrj" id="prjUpdate"
             class="col-start-6 col-span-4 row-start-3 row-span-full flex flex-col gap-3 w-full h-full">
             <h3 class="font-bold text-3xl pb-10 text-center">Project Update</h3>
 
@@ -180,7 +180,7 @@ const updateProjectId = (projectId, index) => {
     updateData.value.index = index;
 }
 
-const updatePrj = async (id) => {
+const updatePrj = async () => {
     try {
         const index = updateData.value.index;
 
@@ -208,14 +208,18 @@ const updatePrj = async (id) => {
         console.log(project.value[index].Status)
 
         const result = await UpdateProject(updateData.value.id, updateData.value.name, updateData.value.leader, updateData.value.startDate, updateData.value.endDate, updateData.value.projectSrc, updateData.value.status)
-        console.log(result);
+            .then(function () {
+                window.location.reload();
+        })
     } catch (e) { }
 }
 
 const createPrj = async () => {
     try {
         const result = await CreateProject(CreateData.value.id, CreateData.value.name, CreateData.value.leader, CreateData.value.startDate, CreateData.value.endDate, CreateData.value.projectSrc, CreateData.value.status)
-        console.log(result);
+            .then(function () {
+            window.location.reload();
+        })
     } catch (e) { }
 }
 
