@@ -44,9 +44,7 @@ class UpdateUsersRequest extends FormRequest
             ];
         } else {
             return [
-                'Id' => ['sometimes', 'required', 'string', 'max:8'],
                 'name' => ['sometimes','required','string','max:10'],
-                'surname' => ['sometimes','required','string','max:50'],
                 'birthday' => ['sometimes','required','date'],
                 'joinDate' => ['sometimes','required','date'],
                 'major' => ['sometimes','required','integer','gte:0'],
