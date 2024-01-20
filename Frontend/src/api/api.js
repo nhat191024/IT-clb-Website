@@ -6,7 +6,7 @@ const router = useRouter();
 const token = localStorage.getItem("Token");
 
 export const Api = axios.create({
-    baseURL: 'http://localhost:8000/api/v1',
+    baseURL: 'http://127.0.0.1:8000/api/v1',
     timeout: 5000,
     headers: {
         "Content-Type": 'application/json',
@@ -168,15 +168,19 @@ export async function UpdateProject(id, name, leader, startDate, endDate, projec
     }
 }
 
-export async function UpdateMember(id, name, leader, startDate, endDate, projectSrc, status) {
+export async function UpdateMember(id, name, birthday, major, course, email, phone, active, role, username, joinDate) {
     try {
-        const response = await Api.patch(`/projects/${id}`, {
+        const response = await Api.patch(`/members/${id}`, {
             Name: name,
-            Leader: leader,
-            StartDate: startDate,
-            EndDate: endDate,
-            ProjectSrc: projectSrc,
-            Status: status
+            Birthday: birthday,
+            Major: major,
+            Course: course,
+            Email: email,
+            Phone: phone,
+            Active: active,
+            Role: role,
+            username: username,
+            joinDate: joinDate
         });
 
         return response;
@@ -205,16 +209,19 @@ export async function CreateProject(id, name, leader, startDate, endDate, projec
     }
 }
 
-export async function CreateMember(id, name, leader, startDate, endDate, projectSrc, status) {
+export async function CreateMember(name, birthday, major, course, email, phone, active, role, username, joinDate) {
     try {
-        const response = await Api.post('/projects', {
-            Id: id,
+        const response = await Api.post('/members', {
             Name: name,
-            Leader: leader,
-            StartDate: startDate,
-            EndDate: endDate,
-            ProjectSrc: projectSrc,
-            Status: status
+            Birthday: birthday,
+            Major: major,
+            Course: course,
+            Email: email,
+            Phone: phone,
+            Active: active,
+            Role: role,
+            username: username,
+            joinDate: joinDate
         });
 
         return response;
