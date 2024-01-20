@@ -15,6 +15,6 @@ class ProjectMembers extends Model
 
     public function project()
     {
-        return $this->hasOne(Projects::class, 'Id', 'Project');
+        return $this->hasOne(project::class, 'Id', 'Project');
     }
 }

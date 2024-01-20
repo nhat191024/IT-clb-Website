@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('project', function (Blueprint $table) {
             $table->id();
+            $table->string('ProjectCode');
             $table->string('Name');
-            $table->text('Content');
-            $table->string('View');
-            $table->string('Like');
-            $table->unsignedBigInteger('Author');
-            $table->smallInteger('status');
+            $table->string('Thumbnail');
             $table->timestamps();
-
-            $table->foreign('Author')->references('Id')->on('users')->onUpdate('cascade')->onDelete('set null');
         });
     }
 
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('projects');
     }
 };
