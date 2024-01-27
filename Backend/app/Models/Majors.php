@@ -2,19 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Majors extends Model
+class majors extends Model
 {
-    use HasFactory;
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
-            'Name'
-        ];
+        'name'
+    ];
 
     public function user()
     {
-        return $this->hasMany(User::class, 'Major', 'Id');
+        return $this->hasMany(User::class, 'majorID', 'id');
     }
 }
