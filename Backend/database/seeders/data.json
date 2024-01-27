@@ -36,11 +36,52 @@
             "name": "K19302"
         }
     ],
+    "language":  [
+        {
+            "name": "HTML"
+        },
+        {
+            "name": "CSS"
+        },
+        {
+            "name": "JavaScript"
+        },
+        {
+            "name": "PHP"
+        }
+    ],
+    "type": [
+        {
+            "name": "Game"
+        },
+        {
+            "name": "Web Application"
+        },
+        {
+            "name": "PC Application"
+        }
+    ],
+    "framework": [
+        {
+            "name": "Laravel"
+        },
+        {
+            "name": "Vite"
+        },
+        {
+            "name": "Vue"
+        },
+        {
+            "name": "React"
+        },
+        {
+            "name": "NextJs"
+        }
+    ],
     "Members": [
         {
-            "Id": "PP03059",
-            "name": "Vương",
-            "surname": "Vũ Minh",
+            "studentID": "PP03059",
+            "name": "Vũ Minh Vương",
             "birthday": "1998-11-15",
             "joinDate": "2023-10-14",
             "majors": "1",
@@ -54,9 +95,8 @@
             "role": "A"
         },
         {
-            "Id": "PP03204",
-            "name": "Khánh",
-            "surname": "Phạm Hoàng Bảo",
+            "studentID": "PP03204",
+            "name": "Phạm Hoàng Bảo Khánh",
             "birthday": "2005-01-31",
             "joinDate": "2023-10-14",
             "majors": "1",
@@ -70,9 +110,8 @@
             "role": "M"
         },
         {
-            "Id": "PP02744",
-            "name": "Nhật",
-            "surname": "Vũ Anh",
+            "studentID": "PP02744",
+            "name": "Vũ Anh Nhật",
             "birthday": "2004-10-19",
             "joinDate": "2023-10-14",
             "majors": "1",
@@ -86,9 +125,8 @@
             "role": "D"
         },
         {
-            "Id": "PP03123",
-            "name": "Hà",
-            "surname": "Văn Thị",
+            "studentID": "PP03123",
+            "name": "Văn Thị Hà",
             "birthday": "2005-06-23",
             "joinDate": "2023-10-14",
             "majors": "2",
@@ -102,9 +140,8 @@
             "role": "M"
         },
         {
-            "Id": "PP03175",
-            "name": "Phượng",
-            "surname": "Lê Thị Ngọc",
+            "studentID": "PP03175",
+            "name": "Lê Thị Ngọc Phượng",
             "birthday": "2000-10-24",
             "joinDate": "2023-10-14",
             "majors": "2",
@@ -118,9 +155,8 @@
             "role": "M"
         },
         {
-            "Id": "PP03254",
-            "name": "Huyền",
-            "surname": "Phạm Thị",
+            "studentID": "PP03254",
+            "name": "Phạm Thị Huyền",
             "birthday": "2004-11-28",
             "joinDate": "2023-10-14",
             "majors": "3",
@@ -134,24 +170,25 @@
             "role": "M"
         }
     ],
-    "Project": [
+    "project": [
         {
-            "Id": "CLBWEB",
-            "Name": "Website CLB",
-            "Image": "../../assets/logo.png",
-            "Leader": "Iwanaga",
-            "StartDate": "2023-10-31",
-            "EndDate": "2023-12-16",
-            "Status": "Working"
+            "projectCode": "CLBWEB",
+            "name": "Website CLB",
+            "thumbnail": "../../assets/logo.png"
         },
         {
-            "Id": "GAME",
-            "Name": "GAME",
-            "Image": "../../assets/logo.png",
-            "Leader": "Iwanaga",
-            "StartDate": "2023-10-31",
-            "EndDate": "2023-12-16",
-            "Status": "Working"
+            "projectCode": "GHCT2024",
+            "Name": "FloppyBird",
+            "thumbnail": "../../assets/logo.png"
+        }
+    ],
+    "projectDetail": [
+        {
+            "projectId": "1",
+            "leaderId": "3",
+            "typeId": "1",
+            "languageId": "1"
+
         }
     ],
     "ProjectMember": [
