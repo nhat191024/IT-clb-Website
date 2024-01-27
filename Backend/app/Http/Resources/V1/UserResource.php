@@ -17,19 +17,19 @@ class UserResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->Name,
-            'birthday' => $this->Birthday,
-            'joinDate' => $this->JoinDate,
-            'majorId' => $this->Major,
-            'courseId' => $this->Course,
-            'email' => $this->Email,
-            'phone' => $this->Phone,
+            'studentID' => $this->studentID,
+            'mail' => $this->mail,
             'username' => $this->username,
-            'active' => $this->Active,
-            'socialAccount' => $this->SocialAccount,
-            'role' => $this->Role,
-            'major' => new MajorResource($this->whenLoaded('major')),
-            'course' => new CourseResource($this->whenLoaded('course')),
+            'name' => $this->name,
+            'avatarPath' => $this->avatarPath,
+            'birthday' => $this->birthday,
+            'joinDate' => $this->joinDate,
+            //'major' => new MajorResource($this->whenLoaded('major')),
+            //'course' => new CourseResource($this->whenLoaded('course')),
+            'phone' => $this->phone,
+            'active' => $this->active,
+            'socialAccount' => $this->socialAccount,
+            'role' => $this->role,
         ];
     }
 }
