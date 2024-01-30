@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class types extends Model
 {
-    use HasFactory;
+    protected $fillable = [];
+
+    public function projectType(){
+        return $this->belongsToMany(projects::class);
+    }
 }

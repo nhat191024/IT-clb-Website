@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class frameworks extends Model
 {
-    use HasFactory;
+    protected $fillable = [];
+
+    public function projectFramework(){
+        return $this->belongsToMany(projects::class);
+    }
 }

@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class languages extends Model
 {
-    use HasFactory;
+    protected $fillable = [];
+
+    public function projectLanguage()
+    {
+        return $this->belongsToMany(projects::class);
+    }
 }
