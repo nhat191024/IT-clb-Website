@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Models\users;
+use App\Models\User;
 
 use App\Http\Requests\V1\StoreUsersRequest;
 use App\Http\Requests\V1\UpdateUsersRequest;
@@ -15,7 +15,7 @@ use App\Data\V1\MembersData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UsersController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class UsersController extends Controller
         $filter = new MembersData();
         $filterItems = $filter->transform($request);
 
-        $members = users::where($filterItems);
+        $members = user::where($filterItems);
 
         $members = $members->with('major');
         $members = $members->with('course');
@@ -39,7 +39,7 @@ class UsersController extends Controller
      */
     public function store(StoreUsersRequest $request)
     {
-        return new UserResource(users::create($request->all()));
+        return new UserResource(user::create($request->all()));
     }
 
     /**
@@ -47,7 +47,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = users::find($id);
+        $user = user::find($id);
         return
             response([
                 'Message' => 'success',
@@ -60,7 +60,7 @@ class UsersController extends Controller
      */
     public function update(UpdateUsersRequest $request, $id)
     {
-        users::where('Id', $id)->update($request->all());
+        user::where('Id', $id)->update($request->all());
     }
 
 
@@ -77,8 +77,7 @@ class UsersController extends Controller
                     'Message' => 'Login failed.'
                 ], 401);
         } else {
-
-            $userData = users::where('username', $user_data['username'])->select('Role', 'id')->first();
+            $userData = user::where('username', $user_data['username'])->select('Role', 'id')->first();
 
             $userId = $userData->id;
             $userRole = $userData->Role;
