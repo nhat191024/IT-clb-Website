@@ -15,15 +15,15 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('leaderID');
             $table->unsignedBigInteger('projectID');
-            $table->text('description');
-            $table->string('projectSrc', 50);
-            $table->tinyInteger('status');
+            $table->text('description')->nullable();
+            $table->string('projectSrc', 50)->nullable();
+            $table->tinyInteger('status', false)->default('0');
             $table->boolean('show')->default(false);
             $table->date('startDate');
             $table->date('endDate');
             $table->timestamps();
 
-            $table->foreign('leaderID')->references('id')->on('user')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('leaderID')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('projectID')->references('id')->on('projects')->onUpdate('cascade')->onDelete('restrict');
         });
     }
