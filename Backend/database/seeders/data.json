@@ -1,5 +1,5 @@
 {
-    "Majors": [
+    "majors": [
         {
             "name": "Web Developer"
         },
@@ -22,7 +22,7 @@
             "name": "Electronic"
         }
     ],
-    "Courses": [
+    "courses": [
         {
             "name": "K18301"
         },
@@ -84,153 +84,95 @@
             "name": "Vũ Minh Vương",
             "birthday": "1998-11-15",
             "joinDate": "2023-10-14",
-            "majors": "1",
-            "Courses": "1",
+            "majorID": "1",
+            "courseID": "1",
             "mail": "vuongvmpp03059@fpt.edu.vn",
             "image": "",
             "username": "vuongPro1998",
             "password": "vuong1998",
             "active": "1",
             "socialLink": "",
-            "role": "A"
+            "role": ""
         },
         {
             "studentID": "PP03204",
             "name": "Phạm Hoàng Bảo Khánh",
             "birthday": "2005-01-31",
             "joinDate": "2023-10-14",
-            "majors": "1",
-            "Courses": "3",
+            "majorID": "1",
+            "courseID": "3",
             "mail": "khanhphbpp03204@fpt.edu.vn",
             "image": "",
             "username": "khanhPhb",
             "password": "khanhPhbpp03204",
+            "phone": "",
             "active": "1",
             "socialLink": "",
-            "role": "M"
+            "role": ""
         },
         {
             "studentID": "PP02744",
             "name": "Vũ Anh Nhật",
             "birthday": "2004-10-19",
             "joinDate": "2023-10-14",
-            "majors": "1",
-            "Courses": "1",
+            "majorID": "1",
+            "courseID": "1",
             "mail": "richberchannel01@gmail.com",
             "image": "",
             "username": "FuminoTheAxolotl",
             "password": "IwAnAgA02744",
             "active": "1",
+            "phone": "",
             "socialLink": "",
-            "role": "D"
+            "role": ""
         },
         {
             "studentID": "PP03123",
             "name": "Văn Thị Hà",
             "birthday": "2005-06-23",
             "joinDate": "2023-10-14",
-            "majors": "2",
-            "Courses": "3",
+            "majorID": "2",
+            "courseID": "3",
             "mail": "Havtpp03123@fpt.edu.vn",
             "image": "",
             "username": "HaXinhGai",
             "password": "Ha03123",
+            "phone": "",
             "active": "1",
             "socialLink": "",
-            "role": "M"
+            "role": ""
         },
         {
             "studentID": "PP03175",
             "name": "Lê Thị Ngọc Phượng",
             "birthday": "2000-10-24",
             "joinDate": "2023-10-14",
-            "majors": "2",
-            "Courses": "3",
+            "majorID": "2",
+            "courseID": "3",
             "mail": "phuongltnpp03175@fpt.edu.vn",
             "image": "",
             "username": "phuongPro",
             "password": "phuong03175",
+            "phone": "",
             "active": "1",
             "socialLink": "",
-            "role": "M"
+            "role": ""
         },
         {
             "studentID": "PP03254",
             "name": "Phạm Thị Huyền",
             "birthday": "2004-11-28",
             "joinDate": "2023-10-14",
-            "majors": "3",
-            "Courses": "3",
+            "majorID": "3",
+            "courseID": "3",
             "mail": "Huyenphpp03254@fpt.edu.vn",
             "image": "",
             "username": "huyenSimple",
             "password": "huyen03254",
+            "phone": "",
             "active": "1",
             "socialLink": "",
-            "role": "M"
-        }
-    ],
-    "project": [
-        {
-            "projectCode": "CLBWEB",
-            "name": "Website CLB",
-            "thumbnail": "../../assets/logo.png"
-        },
-        {
-            "projectCode": "GHCT2024",
-            "Name": "FloppyBird",
-            "thumbnail": "../../assets/logo.png"
-        }
-    ],
-    "projectDetail": [
-        {
-            "projectId": "1",
-            "leaderId": "3",
-            "typeId": "1",
-            "languageId": "1"
-
-        }
-    ],
-    "ProjectMember": [
-        {
-            "Project": "CLBWEB",
-            "Member": 3
-        },
-        {
-            "Project": "CLBWEB",
-            "Member": 1
-        },
-        {
-            "Project": "GAME",
-            "Member": 3
-        }
-    ],
-    "Task": [
-        {
-            "Task": "Database Design",
-            "Project": "CLBWEB",
-            "WorkMember": 3
-        },
-        {
-            "Task": "UI Design",
-            "Project": "CLBWEB",
-            "WorkMember": 3
-        }
-    ],
-    "Blog": [
-        {
-            "Name": "Cách Xây Dựng Cơ Sở Dữ Liệu",
-            "Content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet justo urna. Nullam congue fermentum convallis. Cras ornare felis sed eleifend pulvinar. Vestibulum euismod dui neque, sed fringilla lectus gravida vel. Curabitur in nisi tincidunt, fermentum libero sed, ultricies lectus. Praesent rutrum semper nulla, vehicula tincidunt lorem iaculis a. Integer hendrerit est enim, non rhoncus urna aliquet et. Aenean ac magna turpis. Morbi feugiat diam a purus ullamcorper vehicula. Nulla pharetra tincidunt bibendum.",
-            "Author": 1,
-            "View": "0",
-            "Like": "0"
-        },
-        {
-            "Name": "Cách Thiết Kế Landing Page",
-            "Content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet justo urna. Nullam congue fermentum convallis. Cras ornare felis sed eleifend pulvinar. Vestibulum euismod dui neque, sed fringilla lectus gravida vel. Curabitur in nisi tincidunt, fermentum libero sed, ultricies lectus. Praesent rutrum semper nulla, vehicula tincidunt lorem iaculis a. Integer hendrerit est enim, non rhoncus urna aliquet et. Aenean ac magna turpis. Morbi feugiat diam a purus ullamcorper vehicula. Nulla pharetra tincidunt bibendum.",
-            "Author": 1,
-            "View": "0",
-            "Like": "0"
+            "role": ""
         }
     ]
 }
