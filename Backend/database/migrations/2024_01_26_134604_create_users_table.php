@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('studentID', 10);
-            $table->string('mail', 10);
-            $table->string('username', 10);
-            $table->string('password', 10);
+            $table->string('mail', 50);
+            $table->string('username', 20);
+            $table->string('password');
             $table->string('name', 20);
             $table->string('avatarPath', 10)->nullable();
             $table->date('birthday');
@@ -24,9 +24,9 @@ return new class extends Migration
             $table->unsignedBigInteger('majorID');
             $table->unsignedBigInteger('courseID');
             $table->string('phone', 10)->nullable();
-            $table->smallInteger('active', 1)->default(0);
+            $table->smallInteger('active', false)->default('0');
             $table->json('socialAccount')->nullable();
-            $table->smallInteger('role', 1)->default(0);
+            $table->smallInteger('role', false)->default('0');
             $table->rememberToken();
             $table->timestamps();
 
