@@ -4,7 +4,6 @@ namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\V1\MajorResource;
 
 class UserResource extends JsonResource
 {
@@ -24,8 +23,8 @@ class UserResource extends JsonResource
             'avatarPath' => $this->avatarPath,
             'birthday' => $this->birthday,
             'joinDate' => $this->joinDate,
-            //'major' => new MajorResource($this->whenLoaded('major')),
-            //'course' => new CourseResource($this->whenLoaded('course')),
+            'major' => new MajorResource($this->whenLoaded('major')),
+            'course' => new CourseResource($this->whenLoaded('course')),
             'phone' => $this->phone,
             'active' => $this->active,
             'socialAccount' => $this->socialAccount,
