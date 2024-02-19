@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('username', 20);
             $table->string('password');
             $table->string('name', 20);
-            $table->string('avatarPath', 10)->nullable();
+            $table->string('avatarPath', 50)->nullable();
             $table->date('birthday');
             $table->date('joinDate');
             $table->unsignedBigInteger('majorID');
