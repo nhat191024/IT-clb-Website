@@ -79,19 +79,9 @@ class DatabaseSeeder extends Seeder
                 "code" => $row['code'],
                 "name" => $row['name'],
             ]);
-
-            foreach ($row['type'] as $types) {
-                $type = types::find($types);
-                $project->type()->attach($type->id);
-            }
-            foreach ($row['language'] as $languages) {
-                $language = languages::find($languages);
-                $project->language()->attach($language->id);
-            }
-            foreach ($row['framework'] as $frameworks) {
-                $framework = frameworks::find($frameworks);
-                $project->framework()->attach($framework->id);
-            }
+            $project->type()->attach($row['type']);
+            $project->language()->attach($row['language']);
+            $project->framework()->attach($row['framework']);
         };
 
         foreach ($dataArray['projectDetails'] as $row) {
