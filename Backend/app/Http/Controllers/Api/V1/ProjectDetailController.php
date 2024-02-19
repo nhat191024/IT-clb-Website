@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\projectDetail;
-use App\Http\Requests\StoreprojectDetailRequest;
-use App\Http\Requests\UpdateprojectDetailRequest;
+use App\Models\projectDetails;
+use App\Http\Requests\V1\StoreProjectDetailRequest;
+use App\Http\Requests\V1\UpdateProjectDetailRequest;
 
 class ProjectDetailController extends Controller
 {
@@ -27,7 +27,7 @@ class ProjectDetailController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreprojectDetailRequest $request)
+    public function store(StoreProjectDetailRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class ProjectDetailController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(projectDetail $projectDetail)
+    public function show(projectDetails $projectDetail)
     {
         //
     }
@@ -43,7 +43,7 @@ class ProjectDetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(projectDetail $projectDetail)
+    public function edit(projectDetails $projectDetail)
     {
         //
     }
@@ -51,7 +51,7 @@ class ProjectDetailController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateprojectDetailRequest $request, projectDetail $projectDetail)
+    public function update(UpdateProjectDetailRequest $request, projectDetails $projectDetail)
     {
         //
     }
@@ -59,7 +59,7 @@ class ProjectDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(projectDetail $projectDetail)
+    public function destroy(projectDetails $projectDetail)
     {
         //
     }
