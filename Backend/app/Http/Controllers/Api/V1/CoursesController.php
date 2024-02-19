@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Data\V1\CourseData;
-use App\Models\Courses;
+use App\Models\courses;
+
 use App\Http\Requests\V1\StoreCoursesRequest;
 use App\Http\Requests\V1\UpdateCoursesRequest;
 use App\Http\Controllers\Controller;
@@ -21,17 +22,9 @@ class CoursesController extends Controller
         $filter = new CourseData();
         $filterItems = $filter->transform($request);
 
-        $course = Courses::where($filterItems);
+        $course = courses::where($filterItems);
 
         return new CourseCollection($course->paginate()->appends($request->query()));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -39,15 +32,16 @@ class CoursesController extends Controller
      */
     public function store(StoreCoursesRequest $request)
     {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Courses $courses)
-    {
-        //
+        $result = new CourseResource(courses::create($request->all()));
+        if ($result) {
+            return response()->json([
+                'message' => 'success',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'fail',
+            ], 400);
+        }
     }
 
     /**
@@ -55,14 +49,6 @@ class CoursesController extends Controller
      */
     public function update(UpdateCoursesRequest $request, $id)
     {
-        Courses::where('Id', $id)->update($request->all());
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Courses $courses)
-    {
-        //
+        courses::where('Id', $id)->update($request->all());
     }
 }
