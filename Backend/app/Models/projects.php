@@ -24,23 +24,18 @@ class projects extends Model
         return $this->hasOne(projectDetails::class, 'projectID', 'id');
     }
 
-    public function projectMember()
-    {
-        return $this->belongsToMany(user::class);
-    }
-
     public function type()
     {
-        return $this->belongsToMany(types::class);
+        return $this->belongsToMany(types::class, 'project_type');
     }
 
     public function language()
     {
-        return $this->belongsToMany(languages::class);
+        return $this->belongsToMany(languages::class, 'project_language');
     }
 
     public function framework()
     {
-        return $this->belongsToMany(frameworks::class);
+        return $this->belongsToMany(frameworks::class, 'project_framework');
     }
 }

@@ -26,4 +26,9 @@ class projectDetails extends Model
     {
         return $this->belongsTo(user::class, 'leaderID', 'id');
     }
+
+    public function projectMember()
+    {
+        return $this->belongsToMany(user::class, 'project_member');
+    }
 }
