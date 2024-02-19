@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('code',20);
             $table->string('name',20);
-            $table->string('thumbnailPath');
+            $table->string('thumbnailPath')->nullable();
             $table->timestamps();
         });
     }
