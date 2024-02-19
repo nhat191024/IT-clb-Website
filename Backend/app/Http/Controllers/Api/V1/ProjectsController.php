@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Data\V1\PrjData;
-use App\Models\Projects;
+use App\Models\projects;
 use App\Http\Requests\V1\StoreProjectsRequest;
 use App\Http\Requests\V1\UpdateProjectsRequest;
 use App\Http\Controllers\Controller;
@@ -21,9 +21,15 @@ class ProjectsController extends Controller
         $filter = new PrjData();
         $filterItems = $filter->transform($request);
 
-        $project = Projects::where($filterItems);
+        $project = projects::where($filterItems);
 
-        return new ProjectCollection($project->paginate()->appends($request->query()));
+        $project = $project->with('projectDetail', 'projectDetail.leader', 'projectDetail.projectMember', 'projectDetail.projectMember.major', 'projectDetail.projectMember.course', 'type', 'language', 'framework');
+
+        return new ProjectCollection($project->paginate(5)->appends($request->query()));
+
+        // $test = projects::latest()->first();
+
+        // return new ProjectResource($test);
     }
 
     /**
