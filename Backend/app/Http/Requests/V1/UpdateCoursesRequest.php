@@ -24,11 +24,11 @@ class UpdateCoursesRequest extends FormRequest
         $method = $this->method();
         if ($method == 'PUT') {
             return [
-                'Name' => ['required', 'string', 'max:6'],
+                'Name' => ['required', 'string', 'min:5', 'max:10'],
             ];
         } else {
             return [
-                'Name' => ['sometime', 'required', 'string', 'max:6'],
+                'Name' => ['sometime', 'required', 'string', 'min:5', 'max:10'],
             ];
         }
     }
