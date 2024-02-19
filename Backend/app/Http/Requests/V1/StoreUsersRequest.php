@@ -23,19 +23,20 @@ class StoreUsersRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'Name' => ['required', 'string', 'max:40'],
-            'Birthday' => ['required', 'date'],
-            'JoinDate' => ['required', 'date'],
-            'Major' => ['required', 'integer', 'gte:0'],
-            'Course' => ['required', 'integer', 'gte:0'],
-            'Email' => ['required', 'email', 'max:40'],
-            'Phone' => ['integer', 'min:10', 'max:12'],
-            'Avatar' => ['string'],
+            'studentID' => ['required', 'string', 'min:5', 'max:10'],
+            'mail' => ['required', 'email', 'min:10', 'max:50'],
             'username' => ['required', 'string', 'max:20'],
             'password' => ['required', 'string', 'max:20'],
-            'Active' => ['required', 'integer'],
-            'SocialAccount' => ['json'],
-            'Role' => ['required', 'string', 'max:1', Rule::in(['M', 'D', 'A'])],
+            'name' => ['required', 'string', 'min:5', 'max:20'],
+            'avatarPath' => ['string', 'max:50'],
+            'birthday' => ['required', 'date'],
+            'joinDate' => ['required', 'date'],
+            'majorID' => ['required', 'integer', 'gte:0'],
+            'courseID' => ['required', 'integer', 'gte:0'],
+            'phone' => ['string', 'min:9', 'max:10'],
+            'active' => ['required', 'integer', 'max:1', Rule::in([0, 1])],
+            'socialLink' => ['json'],
+            'role' => ['required', 'integer', 'max:1', Rule::in([0, 1, 2])],
         ];
     }
 }
