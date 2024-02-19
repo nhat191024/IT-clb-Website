@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Data\V1\PrjData;
 use App\Models\projects;
+
+use App\Data\V1\PrjData;
 use App\Http\Requests\V1\StoreProjectsRequest;
 use App\Http\Requests\V1\UpdateProjectsRequest;
 use App\Http\Controllers\Controller;
@@ -26,18 +27,6 @@ class ProjectsController extends Controller
         $project = $project->with('projectDetail', 'projectDetail.leader', 'projectDetail.projectMember', 'projectDetail.projectMember.major', 'projectDetail.projectMember.course', 'type', 'language', 'framework');
 
         return new ProjectCollection($project->paginate(5)->appends($request->query()));
-
-        // $test = projects::latest()->first();
-
-        // return new ProjectResource($test);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -45,25 +34,22 @@ class ProjectsController extends Controller
      */
     public function store(StoreProjectsRequest $request)
     {
-        // Projects::create([
-        //     "Id" => $request->Id,
-        //     "Name" => $row['Name'],
-        //     "Image" => $row['Image'],
-        //     "Leader" => $row['Leader'],
-        //     "StartDate" => $row['StartDate'],
-        //     "EndDate" => $row['EndDate'],
-        //     "Status" => $row['Status'],
-        // ]);
-        return new ProjectResource(Projects::create($request->all()));
-        // return $request;
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Projects $projects)
-    {
-        //
+        $project  = Projects::create([
+            "code" => $request->code,
+            "name" => $request->name
+        ]);
+        $project->type()->attach($request->type);
+        $project->language()->attach($request->language);
+        $project->framework()->attach($request->framework);
+        if ($project) {
+            return response()->json([
+                'message' => 'success',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'fail',
+            ], 400);
+        }
     }
 
     /**
@@ -71,16 +57,30 @@ class ProjectsController extends Controller
      */
     public function update(UpdateProjectsRequest $request, $id)
     {
-        Projects::where('Id', $id)->update($request->all());
-    }
+        $project  = Projects::find($id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function delete($id)
-    {
+        $project->update($request->all());
 
-        $result = Projects::where('Id', $id)->delete();
-        return $result;
+        if ($request->type) {
+            $project->type()->detach();
+            $project->type()->attach($request->type);
+        }
+        if ($request->language) {
+            $project->language()->detach();
+            $project->language()->sync($request->language);
+        }
+        if ($request->framework) {
+            $project->framework()->detach();
+            $project->framework()->attach($request->framework);
+        }
+        if ($project) {
+            return response()->json([
+                'message' => 'success',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'fail',
+            ], 400);
+        }
     }
 }
