@@ -10,6 +10,6 @@ class types extends Model
     protected $fillable = [];
 
     public function projectType(){
-        return $this->belongsToMany(projects::class);
+        return $this->belongsToMany(projects::class, 'project_type');
     }
 }
