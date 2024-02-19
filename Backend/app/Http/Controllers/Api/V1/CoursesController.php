@@ -9,7 +9,6 @@ use App\Http\Requests\V1\UpdateCoursesRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\CourseCollection;
 use App\Http\Resources\V1\CourseResource;
-use App\Models\Blogs;
 use Illuminate\Http\Request;
 
 class CoursesController extends Controller
@@ -40,7 +39,7 @@ class CoursesController extends Controller
      */
     public function store(StoreCoursesRequest $request)
     {
-        return new CourseResource(Blogs::create($request->all()));
+        
     }
 
     /**
