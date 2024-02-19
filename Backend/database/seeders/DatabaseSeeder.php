@@ -9,6 +9,7 @@ use App\Models\majors;
 use App\Models\User;
 use App\Models\projects;
 use App\Models\types;
+use App\Models\projectDetails;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -23,6 +24,8 @@ class DatabaseSeeder extends Seeder
         $jsonFilePath = './database/seeders/data.json';
         $jsonContent = file_get_contents($jsonFilePath);
         $dataArray = json_decode($jsonContent, true);
+
+
 
         foreach ($dataArray['courses'] as $row) {
             courses::create([
@@ -71,41 +74,39 @@ class DatabaseSeeder extends Seeder
             ]);
         };
 
-        // foreach ($dataArray['Project'] as $row) {
-        //     projects::create([
-        //         "Id" => $row['Id'],
-        //         "Name" => $row['Name'],
-        //         "Image" => $row['Image'],
-        //         "Leader" => $row['Leader'],
-        //         "StartDate" => $row['StartDate'],
-        //         "EndDate" => $row['EndDate'],
-        //         "Status" => $row['Status'],
-        //     ]);
-        // };
+        foreach ($dataArray['projects'] as $row) {
+            $project = projects::create([
+                "code" => $row['code'],
+                "name" => $row['name'],
+            ]);
 
-        // foreach ($dataArray['ProjectMember'] as $row) {
-        //     ProjectMembers::create([
-        //         "Project" => $row['Project'],
-        //         "Member" => $row['Member']
-        //     ]);
-        // };
+            foreach ($row['type'] as $types) {
+                $type = types::find($types);
+                $project->type()->attach($type->id);
+            }
+            foreach ($row['language'] as $languages) {
+                $language = languages::find($languages);
+                $project->language()->attach($language->id);
+            }
+            foreach ($row['framework'] as $frameworks) {
+                $framework = frameworks::find($frameworks);
+                $project->framework()->attach($framework->id);
+            }
+        };
 
-        // foreach ($dataArray['Task'] as $row) {
-        //     Tasks::create([
-        //         "Task" => $row['Task'],
-        //         "Project" => $row['Project'],
-        //         "WorkMember" => $row['WorkMember']
-        //     ]);
-        // };
+        foreach ($dataArray['projectDetails'] as $row) {
+            $project = projectDetails::create([
+                "leaderID" => $row['leader'],
+                "projectID" => $row['project'],
+                "projectSrc" => $row['projectSrc'],
+                "startDate" => $row['startDate'],
+                "endDate" => $row['endDate']
+            ]);
 
-        // foreach ($dataArray['Blog'] as $row) {
-        //     Blogs::create([
-        //         "Name" => $row['Name'],
-        //         "Content" => $row['Content'],
-        //         "Author" => $row['Author'],
-        //         "View" => $row['View'],
-        //         "Like" => $row['Like']
-        //     ]);
-        // };
+            foreach ($row['member'] as $members) {
+                $member = User::find($members);
+                $project->projectMember()->attach($member->id);
+            }
+        };
     }
 }
