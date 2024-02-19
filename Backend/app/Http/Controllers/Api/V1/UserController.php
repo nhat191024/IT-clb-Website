@@ -27,9 +27,7 @@ class UserController extends Controller
 
         $members = user::where($filterItems);
 
-        $members = $members->with('major');
-        $members = $members->with('course');
-
+        $members = $members->with('major', 'course');
 
         return new UserCollection($members->paginate(5)->appends($request->query()));
     }
