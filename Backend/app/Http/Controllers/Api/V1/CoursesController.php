@@ -39,16 +39,7 @@ class CoursesController extends Controller
      */
     public function store(StoreCoursesRequest $request)
     {
-        
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show($id)
-    {
-        $Course = Courses::find($id);
-        return CourseResource::make($Course);
     }
 
     /**

@@ -41,19 +41,6 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show($id)
-    {
-        $user = user::find($id);
-        return
-            response([
-                'Message' => 'success',
-                'user' => UserResource::make($user),
-            ]);
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(UpdateUsersRequest $request, $id)
