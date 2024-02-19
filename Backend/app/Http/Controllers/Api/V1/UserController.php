@@ -37,7 +37,16 @@ class UserController extends Controller
      */
     public function store(StoreUsersRequest $request)
     {
-        return new UserResource(user::create($request->all()));
+        $result =  new UserResource(user::create($request->all()));
+        if ($result) {
+            return response()->json([
+                'message' => 'success',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'fail',
+            ], 400);
+        }
     }
 
     /**
@@ -45,10 +54,17 @@ class UserController extends Controller
      */
     public function update(UpdateUsersRequest $request, $id)
     {
-        user::where('Id', $id)->update($request->all());
+        $result = user::where('Id', $id)->update($request->all());
+        if ($result) {
+            return response()->json([
+                'message' => 'success',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'fail',
+            ], 400);
+        }
     }
-
-
 
     public function login(Request $request)
     {
@@ -86,11 +102,4 @@ class UserController extends Controller
             'Message' => 'Logout'
         ], 201);
     }
-
-    // public function delete($id)
-    // {
-
-    //     $result = User::where('Id', $id)->delete();
-    //     return $result;
-    // }
 }
