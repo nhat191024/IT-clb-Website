@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class languages extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'name'
+    ];
 
     public function projectLanguage()
     {

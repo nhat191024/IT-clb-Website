@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class frameworks extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+        'name'
+    ];
 
     public function projectFramework(){
         return $this->belongsToMany(projects::class);

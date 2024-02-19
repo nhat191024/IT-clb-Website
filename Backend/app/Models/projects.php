@@ -9,14 +9,8 @@ class projects extends Model
 {
 
     protected $fillable = [
-        'leaderID',
-        'projectID',
-        'description',
-        'projectSrc',
-        'status',
-        'show',
-        'startDate',
-        'endDate',
+        'code',
+        'name',
     ];
 
     public function projectDetail()
