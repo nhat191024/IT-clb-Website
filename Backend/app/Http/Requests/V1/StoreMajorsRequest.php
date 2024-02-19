@@ -22,7 +22,7 @@ class StoreMajorsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'Name' => ['required', 'string'],
+            'Name' => ['required', 'string','min:5', 'max:20'],
         ];
     }
 }
