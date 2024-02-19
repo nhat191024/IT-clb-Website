@@ -8,11 +8,7 @@ class PrjData extends ApiData
 {
     protected $safePrams = [
         'id' => ['eq'],
+        'code' => ['eq'],
         'name' => ['eq'],
-        'StartDate' => ['eq'],
-        'WorkTime' => ['eq'],
-        'EndDate' => ['eq'],
-        'ProjectSrc' => ['eq'],
-        'Status' => ['eq'],
     ];
 }
