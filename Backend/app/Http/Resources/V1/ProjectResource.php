@@ -4,7 +4,6 @@ namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\V1\MajorResource;
 
 class ProjectResource extends JsonResource
 {
@@ -16,16 +15,14 @@ class ProjectResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'Id' => $this->Id,
-            'Name' => $this->Name,
-            'Image' => $this->Image,
-            'Leader' => $this->Leader,
-            'StartDate' => $this->StartDate,
-            'WorkTime' => $this->WorkTime,
-            'EndDate' => $this->EndDate,
-            'ProjectSrc' => $this->ProjectSrc,
-            'Status' => $this->Status,
-            'Description' => $this->Description
+            'id' => $this->id,
+            'code' => $this->code,
+            'name' => $this->name,
+            'type' => new TypeCollection($this->whenLoaded('type')),
+            'language' => new LanguageCollection($this->whenLoaded('language')),
+            'framework' => new FrameworkCollection($this->whenLoaded('framework')),
+            'thumbnail' => $this->thumbnailPath,
+            'projectDetail' => new ProjectDetailResource($this->whenLoaded('projectDetail'))
         ];
     }
 }
