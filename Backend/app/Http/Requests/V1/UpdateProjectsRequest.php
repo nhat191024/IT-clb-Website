@@ -24,14 +24,14 @@ class UpdateProjectsRequest extends FormRequest
         $method = $this->method();
         if ($method == 'PUT') {
             return [
-                "code" => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/g', 'min:5', 'max:20'],
-                "name" => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/g', 'min:5', 'max:20'],
+                "code" => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/u', 'min:5', 'max:20'],
+                "name" => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/u', 'min:5', 'max:20'],
                 "thumbnailPath" => ['string'],
             ];
         } else {
             return [
-                "code" => ['sometimes', 'required', 'regex:/^[a-zA-Z0-9]+$/g', 'string', 'min:5', 'max:20'],
-                "name" => ['sometimes', 'required', 'regex:/^[a-zA-Z0-9]+$/g', 'string', 'min:5', 'max:20'],
+                "code" => ['sometimes', 'required', 'regex:/^[a-zA-Z0-9]+$/u', 'string', 'min:5', 'max:20'],
+                "name" => ['sometimes', 'required', 'regex:/^[a-zA-Z0-9]+$/u', 'string', 'min:5', 'max:20'],
                 "thumbnailPath" => ['sometimes', 'string'],
             ];
         }

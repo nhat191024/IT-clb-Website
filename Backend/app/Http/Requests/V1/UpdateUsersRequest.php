@@ -26,10 +26,10 @@ class UpdateUsersRequest extends FormRequest
 
         if ($method == 'PUT') {
             return [
-                'studentID' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/g', 'min:5', 'max:10'],
+                'studentID' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/u', 'min:5', 'max:10'],
                 'mail' => ['required', 'email', 'min:10', 'max:50'],
-                'username' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/g', 'min:5', 'max:20'],
-                'name' => ['required', 'string', 'regex:/^[a-zA-Z]+$/g', 'min:5', 'max:20'],
+                'username' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/u', 'min:5', 'max:20'],
+                'name' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'min:5', 'max:20'],
                 'avatarPath' => ['string', 'max:50'],
                 'birthday' => ['required', 'date'],
                 'joinDate' => ['required', 'date'],
@@ -42,10 +42,10 @@ class UpdateUsersRequest extends FormRequest
             ];
         } else {
             return [
-                'studentID' => ['sometimes', 'required', 'regex:/^[a-zA-Z0-9]+$/g', 'string', 'min:5', 'max:10'],
+                'studentID' => ['sometimes', 'required', 'regex:/^[a-zA-Z0-9]+$/u', 'string', 'min:5', 'max:10'],
                 'mail' => ['sometimes', 'required', 'email', 'min:10', 'max:50'],
-                'username' => ['sometimes', 'required', 'regex:/^[a-zA-Z0-9]+$/g', 'string', 'max:20'],
-                'name' => ['sometimes', 'required', 'string', 'regex:/^[a-zA-Z]+$/g', 'min:5', 'max:20'],
+                'username' => ['sometimes', 'required', 'regex:/^[a-zA-Z0-9]+$/u', 'string', 'max:20'],
+                'name' => ['sometimes', 'required', 'string', 'regex:/^[a-zA-Z]+$/u', 'min:5', 'max:20'],
                 'avatarPath' => ['sometimes', 'string', 'max:50'],
                 'birthday' => ['sometimes', 'required', 'date'],
                 'joinDate' => ['sometimes', 'required', 'date'],

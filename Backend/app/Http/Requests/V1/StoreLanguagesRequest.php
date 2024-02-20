@@ -22,7 +22,7 @@ class StoreLanguagesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'regex:/^[a-zA-Z+# ]+$/g', 'min:2', 'max:10'],
+            'name' => ['required', 'string', 'regex:/^[a-zA-Z+# ]+$/u', 'min:2', 'max:10'],
         ];
     }
 }

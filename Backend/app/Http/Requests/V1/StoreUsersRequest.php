@@ -23,10 +23,10 @@ class StoreUsersRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'studentID' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/g', 'min:5', 'max:10'],
+            'studentID' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/u', 'min:5', 'max:10'],
             'mail' => ['required', 'email', 'min:10', 'max:50'],
-            'username' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/g', 'min:5', 'max:20'],
-            'name' => ['required', 'string', 'regex:/^[a-zA-Z]+$/g', 'min:5', 'max:20'],
+            'username' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/u', 'min:5', 'max:20'],
+            'name' => ['required', 'string', 'min:5', 'max:20'],
             'avatarPath' => ['string', 'max:50'],
             'birthday' => ['required', 'date'],
             'joinDate' => ['required', 'date'],

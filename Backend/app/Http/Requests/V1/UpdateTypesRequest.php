@@ -25,11 +25,11 @@ class UpdateTypesRequest extends FormRequest
 
         if ($method == 'PUT') {
             return [
-                'name' => ['required', 'string', 'regex:/^[a-zA-Z]+$/g', 'min:3', 'max:30'],
+                'name' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'min:3', 'max:30'],
             ];
         } else {
             return [
-                'name' => ['sometimes', 'required', 'regex:/^[a-zA-Z]+$/g', 'string', 'min:3', 'max:30'],
+                'name' => ['sometimes', 'required', 'regex:/^[a-zA-Z]+$/u', 'string', 'min:3', 'max:30'],
             ];
         }
     }

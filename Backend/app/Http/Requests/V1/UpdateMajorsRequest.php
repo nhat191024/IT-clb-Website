@@ -25,11 +25,11 @@ class UpdateMajorsRequest extends FormRequest
         $method = $this->method();
         if ($method == 'PUT') {
             return [
-                'Name' => ['required', 'string', 'regex:/^[a-zA-Z]+$/g', 'min:5', 'max:20'],
+                'Name' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'min:5', 'max:20'],
             ];
         } else {
             return [
-                'Name' => ['sometime', 'required', 'regex:/^[a-zA-Z]+$/g', 'min:5', 'max:20'],
+                'Name' => ['sometime', 'required', 'regex:/^[a-zA-Z]+$/u', 'min:5', 'max:20'],
             ];
         }
     }

@@ -22,7 +22,7 @@ class StoreCoursesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/g', 'min:5', 'max:10'],
+            'name' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/u', 'min:5', 'max:10'],
         ];
     }
 }
