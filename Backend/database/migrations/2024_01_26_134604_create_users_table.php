@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('studentID', 10);
             $table->string('mail', 50);
             $table->string('username', 20);
-            $table->string('password');
+            $table->string('password')->default('00000');
             $table->string('name', 20);
             $table->string('avatarPath', 50)->nullable();
             $table->date('birthday');
