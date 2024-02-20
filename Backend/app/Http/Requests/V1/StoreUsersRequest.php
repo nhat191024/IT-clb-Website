@@ -26,7 +26,7 @@ class StoreUsersRequest extends FormRequest
             'studentID' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/u', 'min:5', 'max:10'],
             'mail' => ['required', 'email', 'min:10', 'max:50'],
             'username' => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/u', 'min:5', 'max:20'],
-            'name' => ['required', 'string', 'min:5', 'max:20'],
+            'name' => ['required', 'string', 'regex:/^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+$/u', 'min:5', 'max:20'],
             'avatarPath' => ['string', 'max:50'],
             'birthday' => ['required', 'date'],
             'joinDate' => ['required', 'date'],

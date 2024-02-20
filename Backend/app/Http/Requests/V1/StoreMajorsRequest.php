@@ -22,7 +22,7 @@ class StoreMajorsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'Name' => ['required', 'string', 'min:5', 'regex:/^[a-zA-Z0-9]+$/u', 'max:20'],
+            'Name' => ['required', 'string', 'min:5','regex:/^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+$/u', 'max:20'],
         ];
     }
 }

@@ -23,7 +23,7 @@ class StoreProjectsRequest extends FormRequest
     {
         return [
             "code" => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/u', 'min:5', 'max:20'],
-            "name" => ['required', 'regex:/^[a-zA-Z0-9]+$/u', 'string', 'min:5', 'max:20'],
+            "name" => ['required','regex:/^[0-9a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+$/u', 'string', 'min:5', 'max:20'],
             "thumbnailPath" => ['string'],
         ];
     }
