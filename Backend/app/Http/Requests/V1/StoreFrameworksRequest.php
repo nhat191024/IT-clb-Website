@@ -22,7 +22,7 @@ class StoreFrameworksRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'min:5', 'max:30'],
+            'name' => ['required', 'string', 'regex:/^[a-zA-Z]+$/g', 'min:5', 'max:30'],
         ];
     }
 }

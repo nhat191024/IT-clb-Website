@@ -25,11 +25,11 @@ class UpdateLanguagesRequest extends FormRequest
 
         if ($method == 'PUT') {
             return [
-                'name' => ['required', 'string', 'min:2', 'max:10'],
+                'name' => ['required', 'string', 'regex:/^[a-zA-Z+#]+$/g', 'min:2', 'max:10'],
             ];
         } else {
             return [
-                'name' => ['sometimes', 'required', 'string', 'min:2', 'max:10'],
+                'name' => ['sometimes', 'required', 'regex:/^[a-zA-Z+#]+$/g', 'string', 'min:2', 'max:10'],
             ];
         }
     }

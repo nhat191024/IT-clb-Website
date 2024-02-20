@@ -22,8 +22,8 @@ class StoreProjectsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "code" => ['required', 'string', 'min:5', 'max:20'],
-            "name" => ['required', 'string', 'min:5', 'max:20'],
+            "code" => ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/g', 'min:5', 'max:20'],
+            "name" => ['required', 'regex:/^[a-zA-Z0-9]+$/g', 'string', 'min:5', 'max:20'],
             "thumbnailPath" => ['string'],
         ];
     }

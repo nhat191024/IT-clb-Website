@@ -25,11 +25,11 @@ class UpdateFrameworksRequest extends FormRequest
 
         if ($method == 'PUT') {
             return [
-                'name' => ['required', 'string', 'min:5', 'max:30'],
+                'name' => ['required', 'string', 'regex:/^[a-zA-Z]+$/g', 'min:5', 'max:30'],
             ];
         } else {
             return [
-                'name' => ['sometimes', 'required', 'string', 'min:5', 'max:30'],
+                'name' => ['sometimes', 'required', 'regex:/^[a-zA-Z]+$/g', 'string', 'min:5', 'max:30'],
             ];
         }
     }

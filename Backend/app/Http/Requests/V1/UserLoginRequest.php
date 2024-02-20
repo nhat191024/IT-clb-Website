@@ -23,8 +23,8 @@ class UsersLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => ['required', 'string', 'max:20'],
-            'password' => ['required', 'string', 'max:20'],
+            'username' => ['required', 'string', 'regex:/^[a-zA-Z0-9+#!@$%^&*]+$/g', 'max:20'],
+            'password' => ['required', 'string', 'regex:/^[a-zA-Z0-9+#!@$%^&*]+$/g', 'max:20'],
         ];
     }
 }
