@@ -37,6 +37,23 @@ class UserController extends Controller
      */
     public function store(StoreUsersRequest $request)
     {
+        $mailDuplicate = User::where('mail', $request->mail)->exists();
+        $usernameDuplicate = User::where('username', $request->username)->exists();
+        $studentIdDuplicate = User::where('studentID', $request->studentID)->exists();
+        if ($mailDuplicate) {
+            return response()->json([
+                'message' => 'Mail is already used',
+            ], 200);
+        } elseif ($usernameDuplicate) {
+            return response()->json([
+                'message' => 'Username is already used',
+            ], 200);
+        } elseif ($studentIdDuplicate) {
+            return response()->json([
+                'message' => 'StudentID is already used',
+            ], 200);
+        }
+
         $result =  new UserResource(user::create($request->all()));
         if ($result) {
             return response()->json([

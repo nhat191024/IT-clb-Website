@@ -14,11 +14,13 @@
         "daisyui",
         "dolore",
         "donec",
+        "ỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨ",
         "egestas",
         "Eget",
         "eiusmod",
         "elit",
         "Enim",
+        "Ếưăạảấầẩẫậắằẳẵặẹẻẽềềểế",
         "facilisi",
         "Faucibus",
         "fontawesome",
@@ -36,6 +38,7 @@
         "myava",
         "nisl",
         "nulla",
+        "Ơàáâãèéêìíòóôõùúăđĩũơ",
         "ornare",
         "Phbpp",
         "squircle",
@@ -44,7 +47,12 @@
         "tempor",
         "tincidunt",
         "tokenable",
-        "Vite"
+        "ƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂ",
+        "Ừễệỉịọỏốồổỗộớờởỡợụủứừ",
+        "ỬỮỰỲỴÝỶ",
+        "Vite",
+        "Ỹửữựỳỵỷỹ",
+        "ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨ"
     ],
     "css.lint.unknownAtRules": "ignore"
 }
