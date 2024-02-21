@@ -1,3 +1,6 @@
 /.vs
 /.vscode
 /.$db.drawio.bkp
+/frontend_old
+/Assets
+.gitignore
